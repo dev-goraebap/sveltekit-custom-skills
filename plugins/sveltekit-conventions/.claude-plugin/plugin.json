@@ -1,0 +1,9 @@
+{
+  "name": "sveltekit-conventions",
+  "description": "SvelteKit server layer architecture conventions. Active Record domain models, Query Service for view models, REST API patterns, and subdomain-based schema organization.",
+  "version": "0.1.0",
+  "author": {
+    "name": "dev-goraebap"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,18 @@
+{
+  "name": "sveltekit-server-skill",
+  "owner": {
+    "name": "dev-goraebap",
+    "email": ""
+  },
+  "metadata": {
+    "description": "SvelteKit server-side layer architecture conventions plugin",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "sveltekit-conventions",
+      "source": "./plugins/sveltekit-conventions",
+      "description": "SvelteKit server layer architecture: Active Record domain models, Query Service, REST API patterns"
+    }
+  ]
+}

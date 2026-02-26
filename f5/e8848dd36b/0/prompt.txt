@@ -1,0 +1,64 @@
+https://github.com/anthropics/skills/blob/main/README.md
+
+엔트로픽 리드미의 일부를 채용해줘 우리한테 맞게
+
+---
+
+우리가 claude code 의 내용을 적었는데 
+
+https://skills.sh/
+
+사실 지금 대부분의 에이전트들이 쓸 수 있거든 스킬을. 그 정보를 다루는게 나을거같은데 claude code 부분 때고
+
+---
+
+# dev-goraebap/skills 아래에는 내가 관리하는 스킬들을 보여주는게 나을거 같아 그리고 밑에는 범용적인 Agent Skill 이 뭔지 알려주는게 낫지
+
+---
+
+> **Note:** This repository contains dev-goraeba's personal Agent Skills. For information about the Agent Skills standard, see [agentskills.io](http://agentskills.io).
+
+## Agent Skills란?
+
+Skills는 AI 에이전트에게 절차적 지식을 제공하는 재사용 가능한 역량 모음입니다. 에이전트가 특정 작업을 반복 가능한 방식으로 수행할 수 있도록 지시사항, 스크립트, 리소스를 동적으로 로드합니다.
+
+Claude Code, Cursor, GitHub Copilot, Gemini, Windsurf, Cline 등 **24개 이상의 에이전트**에서 동일한 스킬을 사용할 수 있습니다.
+
+
+이 내용을 한쪽에서 관리하는게 나을거 같아. 제일 상단에서
+
+---
+
+/home/devgo/workspace/agent-skills/skills/sveltekit-custom-skills
+
+스킬 이름을 sveltekit-progressive-architecture 로 변경하고 싶어 관련 내용들 수정해줄래?
+
+---
+
+/home/devgo/workspace/agent-skills/.agents/skills/ui-ux-pro-max
+
+이 스킬의 트리거를 보고 배우고 싶은데 우리가 스벨트 스킬에서도 범주가 나뉘는데 온디멘드가 각각 잘 작동하게
+
+---
+
+이부분은 active-storage 관련 스킬로 별도로 만들어줄래?
+
+---
+
+active-storage 라는 이름이 어울리는 스킬인가?
+
+---
+
+media-storage 로 해줘
+
+---
+
+/home/devgo/workspace/agent-skills/.agents/skills/ui-ux-pro-max/SKILL.md
+
+이것처럼 sveltekit progressive architecture에서도 지금 3가지 경우가 있는데 
+
+이걸 잘 나눠서 실행하게 하려면?
+
+---
+
+나눠서 커밋해줘

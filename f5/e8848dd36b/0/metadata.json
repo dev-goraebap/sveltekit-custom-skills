@@ -1,0 +1,31 @@
+{
+  "cli_version": "0.4.7",
+  "checkpoint_id": "f5e8848dd36b",
+  "session_id": "1d5750e1-8441-47b0-b285-2e5036ad498e",
+  "strategy": "manual-commit",
+  "created_at": "2026-02-26T12:59:17.777896656Z",
+  "branch": "master",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "skills/media-storage/SKILL.md",
+    "skills/media-storage/references/file-handling.md"
+  ],
+  "agent": "Claude Code",
+  "turn_id": "947162960f5a",
+  "token_usage": {
+    "input_tokens": 72,
+    "cache_creation_tokens": 73381,
+    "cache_read_tokens": 2127216,
+    "output_tokens": 20999,
+    "api_call_count": 48
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-02-26T12:59:17.644639216Z",
+    "agent_lines": 393,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 393,
+    "agent_percentage": 100
+  }
+}

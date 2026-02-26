@@ -134,10 +134,6 @@ size: `default` | `sm` | `lg` | `icon` | `icon-sm` | `icon-lg`
 <Button onclick={() => toast.success("저장됐습니다")}>저장</Button>
 ```
 
-## 스타일 커스터마이징
-
-컴포넌트 소스를 직접 수정하지 않는다. `class` prop으로 Tailwind 클래스를 추가한다.
-
 ```svelte
 <!-- O: class prop으로 오버라이드 -->
 <Button class="w-full mt-4">전체 너비 버튼</Button>

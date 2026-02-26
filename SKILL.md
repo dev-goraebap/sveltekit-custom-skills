@@ -44,3 +44,17 @@ Active Record 도메인 모델, Query Service 조회 패턴, REST API 엔드포�
 - **조회 패턴**: 서브쿼리로 blob 정보를 함께 조회하고, CDN URL과 색상 값을 뷰모델에 포함하는 방법
 
 상세: [references/file-handling.md](references/file-handling.md)
+
+## UI 컴포넌트 (shadcn-svelte)
+
+shadcn-svelte 기반 UI 컴포넌트 사용 규칙. 화면 구현 시 UI 요소가 필요하면 먼저 설치된 컴포넌트를 확인하고, 없으면 shadcn CLI로 설치한다.
+
+설치된 컴포넌트 (`$lib/components/ui/`):
+`alert-dialog` `badge` `button` `calendar` `card` `checkbox` `dialog` `dropdown-menu` `input` `input-otp` `label` `popover` `select` `separator` `sonner` `switch` `table` `tabs` `textarea`
+
+핵심 규칙:
+- **설치 우선**: UI 요소 구현 전 위 목록 확인 → 없으면 `npx shadcn-svelte@latest add <component>` 로 설치
+- **커스텀 금지**: shadcn 컴포넌트를 직접 수정하지 않는다. `class` prop으로 스타일만 오버라이드
+- **임포트 경로**: `$lib/components/ui/<component>` 에서 named import
+
+상세: [references/shadcn-svelte.md](references/shadcn-svelte.md)

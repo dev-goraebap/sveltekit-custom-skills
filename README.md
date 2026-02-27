@@ -13,7 +13,7 @@
 [skills.sh](https://skills.sh)에서 스킬을 검색하고, 아래 명령으로 설치할 수 있습니다:
 
 ```bash
-npx skillsadd dev-goraebap/agent-skills
+npx skills add dev-goraebap/agent-skills
 ```
 
 ## Agent Skills

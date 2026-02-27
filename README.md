@@ -16,7 +16,9 @@
 npx skills add dev-goraebap/skills
 ```
 
-실행하면 설치할 스킬을 직접 고를 수 있습니다:
+실행하면 단계별로 설치 옵션을 선택할 수 있습니다.
+
+**1. 스킬 선택** — 설치할 스킬을 고릅니다 (스페이스로 토글)
 
 ```
 ◆  Select skills to install (space to toggle)
@@ -25,7 +27,30 @@ npx skills add dev-goraebap/skills
 │  ◻ sveltekit-progressive-architecture
 ```
 
-스페이스로 원하는 스킬을 선택하고 엔터를 누르면 설치됩니다.
+**2. 에이전트 선택** — 어떤 에이전트에 설치할지 선택합니다
+
+```
+◆  Which agents do you want to install to?
+│  Amp, Codex, Gemini CLI, GitHub Copilot, Claude Code, ...
+```
+
+Claude Code, Cursor, Gemini CLI, GitHub Copilot 등 24개 이상의 에이전트를 지원합니다.
+
+**3. 설치 범위** — 프로젝트 단위 또는 전역 설치를 선택합니다
+
+```
+◆  Installation scope
+│  ● Project  (현재 프로젝트에만 설치, git에 포함)
+│  ○ Global   (모든 프로젝트에서 사용)
+```
+
+**4. 설치 방식** — 심링크(권장) 또는 복사를 선택합니다
+
+```
+◆  Installation method
+│  ● Symlink  (단일 소스, 업데이트 용이 — 권장)
+│  ○ Copy     (각 에이전트 디렉토리에 복사)
+```
 
 ## Agent Skills
 

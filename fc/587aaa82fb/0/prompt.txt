@@ -1,0 +1,230 @@
+이 스킬을 보면 sveltekit, drizzle 등에 관련된 주석등이 보이는데 이 스킬은 범용적으로 어떤 프레임워크에서든지 사용하는 목적으로 분리한거야. 그 의도에 맞게 개선해줘
+
+---
+
+그리고 해당 md 파일의 내용은 분류가 가능해보이는데 references 폴더에 분리된 내용의 md 파일들로 위치하고 SKILL은 
+
+/home/devgo/workspace/agent-skills/skills/sveltekit-progressive-architecture/SKILL.md
+
+이 스킬을 참고하여 적용될 수 있게 해줘
+
+---
+
+커밋해줘
+
+---
+
+철학:
+이 스킬은 AI가 주도하는 프로그래밍 세계에서 이제 고객이나 팀간의 소통 도구에 필요한 발빠른 방식을 위해 작성하는 스킬이야.
+
+리서치:
+일단 내 철학에 맞게 리서치를 좀 해서 스킬을 만들어야하는데
+
+내가 원하는건 특정 기능을 빠르게 만들어보는걸 목표로 생각을 해. 먼저 AI에게 프로젝트의 개요와 빠르게 만들어보려는 핵심가치를 이야기하며 토론을 유도해야해. 이야기하면서 사용자는 구체적이지 않았던 부분을 구체화 할 수 있어서 좋고 AI는 사용자가 뭘 만들었는지 판단하며 좋은 방향을 제안해야함
+
+사용하는 프레임워크를 강제하지는 않지만, 프론트엔드 측의 프레임워크를 가지고 주로 다루게 될거고 최종적으로 만든 페이지를 팀간에 공유하는 방법이 필요해. 직접 노트북을 들고가서 보여줄 수도 있지만, 링크를 던진다거나 하면 더 좋지 않을까?
+
+---
+
+내 모든 스킬들에 작성자 등록해줄래?
+
+---
+
+응 부탁해
+
+---
+
+README 도 업데이트해줘
+
+---
+
+devgo@goraebap-window:~/workspace/agent-skills$ npx skills add dev-goraebap/skills
+
+███████╗██╗  ██╗██╗██╗     ██╗     ███████╗
+██╔════╝██║ ██╔╝██║██║     ██║     ██╔════╝
+███████╗█████╔╝ ██║██║     ██║     ███████╗
+╚════██║██╔═██╗ ██║██║     ██║     ╚════██║
+███████║██║  ██╗██║███████╗███████╗███████║
+╚══════╝╚═╝  ╚═╝╚═╝╚══════╝╚══════╝╚══════╝
+
+┌   skills 
+│
+◇  Source: https://github.com/dev-goraebap/skills.git
+│
+◇  Repository cloned
+│
+◇  Found 3 skills
+│
+◆  Select skills to install (space to toggle)
+│  ◻ media-storage (파일 업로드·저장소·첨부 관리 패턴. Actions: 파일 업로드, 이미지 업로드, 파일 처리, 저장소...)
+│  ◻ mvp-preview
+│  ◻ sveltekit-progressive-architecture
+
+이렇게 스킬 선택해서 등록할 수 있는데 이 부분을 README에 언급해줘
+
+---
+
+│  ── Other agents ──────────────────────────────────
+│  Search:  
+│  ↑↓ move, space select, enter confirm
+│
+│ ❯ ○ Antigravity (.agent/skills)
+│   ○ Augment (.augment/skills)
+│   ● Claude Code (.claude/skills)
+│   ○ OpenClaw (skills)
+│   ○ Cline (.cline/skills)
+│   ○ CodeBuddy (.codebuddy/skills)
+│   ○ Command Code (.commandcode/skills)
+│   ○ Continue (.continue/skills)
+│  ↓ 24 more
+
+  Which agents do you want to install to?
+│  Amp, Codex, Gemini CLI, GitHub Copilot, Kimi Code CLI, OpenCode, Claude Code
+│
+◆  Installation scope
+│  ● Project (Install in current directory (committed with your project))
+│  ○ Global
+└
+
+
+│
+◆  Installation method
+│  ● Symlink (Recommended) (Single source of truth, easy updates)
+│  ○ Copy to all agents
+└
+
+
+다음 단계들도 있어
+
+---
+
+/home/devgo/workspace/agent-skills/skills/mvp-preview/references
+
+여기에 빈 IDEA.md 같은 폴더 (이름 너가 더 적절한거 있으면 그거 사용) 
+
+미리 만들어놓고 skills.md 와 연결하자. 
+
+사용자와 이야기해서 만들어진 기능들이나 도메인 등의 정보를 에이전트가 이해할 수 있게 저장해놔야하잖아. 세션이 초기화 될 때마다 금붕어 방지하기 위해서. 
+
+기존에는 빈 md 파일로 연결해놓고 사용자와 대화 후에 거기에 이해한 내용을 계속 정리해나가는거야. 사용자가 정리한 내용을 물어보거나 기능을 개선하고 싶으면 거기에 적는거지.
+
+중요한건 구체적인 기능등은 당연히 포함하면 안되고 요구사항과 정책 등의 정보를 적어야해
+
+---
+
+mvp-preview 스킬을 적용해 진행하겠습니다. 먼저 brief.md를 확인해 기존 맥락이 있는지 보고, 있으면 이어서 범위를 확정하고 없으면 바로 디스커버리 질문으로 MVP 범위를 좁히겠습니다.
+
+1개의 목록 탐색 마침
+백그라운드 터미널이 echo --- 명령으로 완료됨
+
+
+1개의 파일 탐색 마침
+백그라운드 터미널이 echo ---DISCOVERY--- 명령으로 완료됨
+
+
+1개의 파일 탐색 마침
+백그라운드 터미널이 echo ---BUILD--- 명령으로 완료됨
+
+
+1개의 파일 탐색 마침
+백그라운드 터미널이 echo ---SHARE--- 명령으로 완료됨
+
+
+1개의 파일 탐색 마침
+brief.md에 이전 맥락이 이미 정리돼 있어서 Step 0은 충족됐습니다. 이제 해당 맥락을 기준으로 이번 턴에서 바꿀 내용이 있는지 확인하고, 없으면 바로 최소 범위로 구현에 들어가겠습니다.
+
+2개의 목록 탐색 마침
+현재 저장소에는 구현 코드가 없어서, 스킬 원칙대로 단일 index.html MVP를 바로 만들겠습니다. brief.md의 해피패스(역할 전환, 버전 편집, diff 확인, 승인/반려)를 목업 데이터 기반으로 한 화면에서 동작하도록 구성하겠습니다.
+
+UI Ux Pro Max
+
+
+2m 7s 동안 작업
+ui-ux-pro-max 스킬 기준으로 디자인 시스템을 먼저 뽑아(Glassmorphism, #0F172A/#0369A1, Plus Jakarta Sans), 그 결과를 반영한 인터랙티브 MVP 화면을 생성했습니다.
+
+변경 파일:
+
+index.html
+구현된 핵심:
+
+PM/클라이언트 역할 전환
+버전 목록 + 상태 배지(draft, pending_approval, approved, rejected)
+PM 편집(초안에서만 항목 추가/수정/삭제) + 승인 요청
+클라이언트 diff 확인 + 승인/반려
+반려 시 코멘트 저장 + 다음 버전 Draft 자동 생성(예: 1.1 반려 → 1.2 Draft)
+접근성 기본 적용(스킵 링크, 포커스 링, aria-live, 라벨, prefers-reduced-motion)
+다음으로 원하면:
+
+이 파일을 로컬 서버로 띄워 즉시 확인 (python3 -m http.server 3000)
+mvp-preview 공유 단계로 바로 링크 배포(cloudflared/surge/vercel) 진행
+
+1개 파일 변경됨
+실행 취소
+
+리뷰
+index.html
+한 페이지에 우겨넣으니까 보기 힘든데 유저 선택하는 화면과 기준요구사항 목록페이지와 기준요구사항 상세페이지로 나뉘어야하지않을까?
+
+맞습니다. 지금 구조는 정보량이 많아 인지부하가 큽니다. index.html을 3단계 플로우로 재구성하겠습니다: 유저 선택 화면 → 기준요구사항 목록 화면 → 기준요구사항 상세 화면으로 분리하고, 기존 상태 전이 로직은 유지하겠습니다.
+
+백그라운드 터미널이 cat > index.html <<'EOF' <!DOCTYPE html> <html lang="ko"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>RFP Approval MVP</title> <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"> <style> :root { --bg: #f8fafc; --text: #020617; --muted: #475569; --primary: #0f172a; --secondary: #334155; --cta: #0369a1; --line: rgba(15, 23, 42, 0.14); --glass: rgba(255, 255, 255, 0.86); --ok: #166534; --warn: #9a3412; --danger: #991b1b; --shadow: 0 12px 35px rgba(15, 23, 42, 0.12); } * { box-sizing: border-box; } body { margin: 0; font-family: "Plus Jakarta Sans", sans-serif; color: var(--text); background: radial-gradient(circle at 8% 0%, rgba(3, 105, 161, 0.22), transparent 45%), radial-gradient(circle at 100% 8%, rgba(59, 130, 246, 0.16), transparent 42%), linear-gradient(180deg, #f1f5f9, #f8fafc 32%); min-height: 100vh; } .skip-link { position: absolute; left: -999px; top: 0; background: var(--primary); color: #fff; padding: 0.75rem 1rem; border-radius: 0 0 0.5rem 0.5rem; z-index: 50; } .skip-link:focus { left: 1rem; } .app { max-width: 1120px; margin: 0 auto; padding: 1rem 1rem 2.5rem; } .shell { border: 1px solid var(--line); border-radius: 20px; background: var(--glass); backdrop-filter: blur(12px); box-shadow: var(--shadow); overflow: hidden; } .shell-head { padding: 1rem; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; flex-wrap: wrap; } .shell-title { margin: 0; font-size: clamp(1.15rem, 0.95rem + 0.7vw, 1.5rem); color: var(--primary); } .shell-sub { margin: 0.25rem 0 0; color: var(--muted); font-size: 0.9rem; line-height: 1.5; } .flow { display: inline-flex; gap: 0.45rem; align-items: center; color: var(--secondary); font-size: 0.8rem; font-weight: 600; } .flow-step { border: 1px solid var(--line); padding: 0.26rem 0.5rem; border-radius: 999px; background: #fff; } .flow-step.active { background: rgba(3, 105, 161, 0.15); border-color: rgba(3, 105, 161, 0.35); color: #075985; } .screen { display: none; padding: 1rem; } .screen.active { display: block; } .role-grid { margin-top: 0.75rem; display: grid; gap: 0.8rem; grid-template-columns: repeat(2, minmax(0, 1fr)); } .card { border: 1px solid var(--line); border-radius: 16px; background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(241,245,249,0.82)); box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08); padding: 1rem; } .role-card { min-height: 130px; cursor: pointer; transition: transform 180ms ease, border-color 180ms ease; } .role-card:hover { transform: translateY(-2px); } .role-card h2 { margin: 0 0 0.45rem; font-size: 1.04rem; color: var(--primary); } .role-card p { margin: 0; color: var(--muted); line-height: 1.55; font-size: 0.9rem; } .grid { display: grid; gap: 1rem; grid-template-columns: 1.2fr 1fr; margin-top: 0.75rem; } .panel { border: 1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,0.82); padding: 0.9rem; } .panel h3 { margin: 0; font-size: 1rem; color: var(--primary); } .caption { margin: 0.45rem 0 0.85rem; color: var(--muted); font-size: 0.86rem; line-height: 1.55; } .list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.55rem; max-height: 360px; overflow: auto; } .version-card { display: grid; gap: 0.45rem; border: 1px solid var(--line); border-radius: 12px; background: rgba(255,255,255,0.9); padding: 0.75rem; } .row { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; flex-wrap: wrap; } .meta { color: var(--muted); font-size: 0.85rem; } .badge { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.75rem; padding: 0.24rem 0.46rem; border-radius: 999px; border: 1px solid transparent; font-weight: 600; } .b-draft { background: rgba(2, 6, 23, 0.08); color: #1e293b; border-color: rgba(15, 23, 42, 0.25); } .b-pending { background: rgba(251, 146, 60, 0.16); color: #9a3412; border-color: rgba(154, 52, 18, 0.22); } .b-approved { background: rgba(34, 197, 94, 0.15); color: var(--ok); border-color: rgba(22, 101, 52, 0.26); } .b-rejected { background: rgba(239, 68, 68, 0.15); color: var(--danger); border-color: rgba(153, 27, 27, 0.26); } .b-added { background: rgba(34, 197, 94, 0.14); color: #14532d; } .b-modified { background: rgba(251, 146, 60, 0.15); color: #9a3412; } .b-removed { background: rgba(244, 63, 94, 0.15); color: #881337; } .btn { min-height: 44px; border-radius: 11px; border: 1px solid transparent; padding: 0.58rem 0.86rem; cursor: pointer; font: inherit; font-weight: 600; transition: background-color 180ms ease, border-color 180ms ease; } .btn:disabled { opacity: 0.58; cursor: not-allowed; } .btn-primary { background: var(--cta); color: #fff; } .btn-primary:hover { background: #075985; } .btn-secondary { background: #fff; color: var(--primary); border-color: var(--line); } .btn-secondary:hover { background: #f1f5f9; } .btn-danger { background: #fee2e2; color: var(--danger); border-color: rgba(153, 27, 27, 0.25); } .btn-danger:hover { background: #fecaca; } .controls { display: flex; gap: 0.55rem; flex-wrap: wrap; margin-top: 0.65rem; } .input-grid { display: grid; gap: 0.58rem; margin-top: 0.75rem; } label { display: block; margin-bottom: 0.32rem; color: var(--secondary); font-size: 0.86rem; font-weight: 600; } input[type="text"], textarea, select { width: 100%; border: 1px solid var(--line); border-radius: 10px; padding: 0.62rem 0.68rem; color: var(--text); background: rgba(255,255,255,0.9); min-height: 44px; font: inherit; } textarea { min-height: 92px; resize: vertical; line-height: 1.55; } .item-card { border: 1px solid var(--line); border-radius: 12px; background: rgba(255,255,255,0.86); padding: 0.65rem 0.7rem; } .item-card button { width: 100%; border: 0; background: transparent; text-align: left; padding: 0.3rem; border-radius: 8px; cursor: pointer; min-height: 44px; color: inherit; font: inherit; } .item-card button.active { background: rgba(3, 105, 161, 0.14); } .item-title { margin: 0; font-size: 0.93rem; font-weight: 700; color: var(--primary); } .item-body { margin: 0.35rem 0 0; color: #334155; font-size: 0.86rem; line-height: 1.55; } .item-note { margin: 0.45rem 0 0; font-size: 0.8rem; color: var(--muted); } .status { margin-top: 0.75rem; min-height: 1.4rem; color: var(--secondary); font-size: 0.86rem; } .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; } :focus-visible { outline: 3px solid rgba(3, 105, 161, 0.45); outline-offset: 2px; } @media (max-width: 980px) { .grid { grid-template-columns: 1fr; } } @media (max-width: 640px) { .app { padding: 0.85rem 0.8rem 2rem; } .role-grid { grid-template-columns: 1fr; } } @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } } </style> </head> <body> <a href="#main" class="skip-link">본문으로 건너뛰기</a> <div class="app"> <div class="shell"> <header class="shell-head"> <div> <h1 class="shell-title">기준 요구사항 버전 승인 MVP</h1> <p id="shellSub" class="shell-sub">역할 선택 후 기준요구사항 버전 목록으로 이동합니다.</p> </div> <div class="flow" aria-label="단계 흐름"> <span id="step-role" class="flow-step active">1. 유저 선택</span> <span id="step-list" class="flow-step">2. 목록</span> <span id="step-detail" class="flow-step">3. 상세</span> </div> </header> <main id="main" tabindex="-1"> <section id="screen-role" class="screen active" aria-label="유저 선택 화면"> <div class="role-grid"> <button id="rolePm" class="card role-card" type="button"> <h2>PM으로 시작</h2> <p>버전 생성, 항목 편집, 승인 요청을 수행합니다.</p> </button> <button id="roleClient" class="card role-card" type="button"> <h2>클라이언트로 시작</h2> <p>변경사항(diff) 확인 후 승인 또는 반려합니다.</p> </button> </div> </section> <section id="screen-list" class="screen" aria-label="기준요구사항 목록 페이지"> <div class="panel"> <h3>버전 목록</h3> <p class="caption">상태 흐름: draft → pending_approval → approved / rejected</p> <ul id="versionList" class="list"></ul> <div class="controls"> <button id="toRoleBtn" class="btn btn-secondary" type="button">역할 다시 선택</button> <button id="createDraftBtn" class="btn btn-secondary" type="button">승인본에서 새 Draft 생성</button> </div> </div> </section> <section id="screen-detail" class="screen" aria-label="기준요구사항 상세 페이지"> <div class="controls" style="margin-top:0; margin-bottom:0.7rem;"> <button id="backToListBtn" class="btn btn-secondary" type="button">목록으로</button> </div> <div class="grid"> <section class="panel"> <h3 id="detailTitle">버전 상세</h3> <p id="detailMeta" class="caption"></p> <ul id="detailItems" class="list"></ul> </section> <section class="panel" id="pmActions"> <h3>PM 액션</h3> <p class="caption">Draft 상태에서만 수정과 승인 요청이 가능합니다.</p> <div class="controls"> <button id="requestApprovalBtn" class="btn btn-primary" type="button">승인 요청 보내기</button> </div> <form id="itemForm" class="input-grid" novalidate> <div> <label for="itemTitle">요구사항 제목</label> <input id="itemTitle" name="title" type="text" required> </div> <div> <label for="itemDesc">설명</label> <textarea id="itemDesc" name="description" required></textarea> </div> <div> <label for="changeType">변경 유형</label> <select id="changeType" name="changeType"> <option value="added">added</option> <option value="modified">modified</option> <option value="removed">removed</option> </select> </div> <div> <label for="changeReason">변경 사유</label> <input id="changeReason" name="reason" type="text" required> </div> <div class="controls"> <button id="saveItemBtn" class="btn btn-primary" type="submit">항목 추가</button> <button id="deleteItemBtn" class="btn btn-danger" type="button" disabled>선택 항목 삭제</button> </div> </form> </section> <section class="panel" id="clientActions" style="display:none;"> <h3>클라이언트 액션</h3> <p class="caption">pending_approval 상태 버전에 대해서만 승인/반려가 가능합니다.</p> <div class="input-grid"> <div> <label for="rejectComment">반려 코멘트</label> <textarea id="rejectComment" placeholder="반려 시 사유를 입력하세요"></textarea> </div> <div class="controls"> <button id="approveBtn" class="btn btn-primary" type="button">버전 승인</button> <button id="rejectBtn" class="btn btn-danger" type="button">버전 반려</button> </div> </div> </section> </div> </section> </main> </div> <p id="statusLive" class="status" aria-live="polite"></p> </div> <script> const state = { role: null, currentScreen: "role", selectedVersion: null, selectedItemId: null, versions: [ { version: "1.0", status: "approved", note: "초기 기준 요구사항 승인", rejectReason: "", items: [ { id: "REQ-001", title: "사용자 권한 조회", description: "권한별 메뉴 노출 제어", changeType: "initial", reason: "초기 등록", prevItemId: null }, { id: "REQ-002", title: "감사 로그", description: "버전 승인 이벤트 기록", changeType: "initial", reason: "컴플라이언스", prevItemId: null } ] }, { version: "1.1", status: "pending_approval", note: "현장 요청 반영 버전", rejectReason: "", items: [ { id: "REQ-001", title: "사용자 권한 조회", description: "권한별 메뉴 + 버튼 비활성화 제어", changeType: "modified", reason: "권한 경계 명확화", prevItemId: "REQ-001" }, { id: "REQ-002", title: "감사 로그", description: "승인/반려 코멘트까지 추적", changeType: "modified", reason: "감사 추적 강화", prevItemId: "REQ-002" }, { id: "REQ-003", title: "버전 비교 보기", description: "added/modified/removed 차이 색상 표기", changeType: "added", reason: "승인 전 검토 속도 개선", prevItemId: null } ] } ] }; const refs = { shellSub: document.getElementById("shellSub"), screens: { role: document.getElementById("screen-role"), list: document.getElementById("screen-list"), detail: document.getElementById("screen-detail") }, steps: { role: document.getElementById("step-role"), list: document.getElementById("step-list"), detail: document.getElementById("step-detail") }, rolePm: document.getElementById("rolePm"), roleClient: document.getElementById("roleClient"), toRoleBtn: document.getElementById("toRoleBtn"), createDraftBtn: document.getElementById("createDraftBtn"), versionList: document.getElementById("versionList"), backToListBtn: document.getElementById("backToListBtn"), detailTitle: document.getElementById("detailTitle"), detailMeta: document.getElementById("detailMeta"), detailItems: document.getElementById("detailItems"), pmActions: document.getElementById("pmActions"), clientActions: document.getElementById("clientActions"), requestApprovalBtn: document.getElementById("requestApprovalBtn"), itemForm: document.getElementById("itemForm"), itemTitle: document.getElementById("itemTitle"), itemDesc: document.getElementById("itemDesc"), changeType: document.getElementById("changeType"), changeReason: document.getElementById("changeReason"), saveItemBtn: document.getElementById("saveItemBtn"), deleteItemBtn: document.getElementById("deleteItemBtn"), rejectComment: document.getElementById("rejectComment"), approveBtn: document.getElementById("approveBtn"), rejectBtn: document.getElementById("rejectBtn"), statusLive: document.getElementById("statusLive") }; const statusMap = { draft: ["Draft", "b-draft"], pending_approval: ["Pending", "b-pending"], approved: ["Approved", "b-approved"], rejected: ["Rejected", "b-rejected"] }; function announce(message) { refs.statusLive.textContent = message; } function getVersion(ver) { return state.versions.find((v) => v.version === ver); } function selectedVersion() { return getVersion(state.selectedVersion); } function latestApproved() { const list = state.versions.filter((v) => v.status === "approved"); return list[list.length - 1] || null; } function pendingVersion() { return state.versions.find((v) => v.status === "pending_approval") || null; } function nextVersion(from) { const [major, minor] = from.split(".").map(Number); return `${major || 1}.${(minor || 0) + 1}`; } function badge(type) { const [label, klass] = statusMap[type] || [type, "b-draft"]; return `<span class="badge ${klass}">${label}</span>`; } function setScreen(name) { state.currentScreen = name; Object.entries(refs.screens).forEach(([key, node]) => { node.classList.toggle("active", key === name); }); Object.entries(refs.steps).forEach(([key, node]) => { node.classList.toggle("active", key === name); }); if (name === "role") refs.shellSub.textContent = "역할 선택 후 기준요구사항 버전 목록으로 이동합니다."; if (name === "list") refs.shellSub.textContent = `${state.role === "pm" ? "PM" : "클라이언트"} 역할로 버전 목록을 확인합니다.`; if (name === "detail") refs.shellSub.textContent = `v${state.selectedVersion} 상세와 액션을 확인합니다.`; } function setRole(role) { state.role = role; if (role === "client") { const pending = pendingVersion(); state.selectedVersion = pending ? pending.version : state.versions[state.versions.length - 1].version; } else { const draft = state.versions.find((v) => v.status === "draft"); state.selectedVersion = draft ? draft.version : state.versions[state.versions.length - 1].version; } state.selectedItemId = null; renderList(); setScreen("list"); } function renderList() { refs.versionList.innerHTML = state.versions.map((v) => { const openDisabled = state.role === "client" && v.status !== "pending_approval" ? "disabled" : ""; const openLabel = state.role === "client" && v.status !== "pending_approval" ? "검토 대상 아님" : "상세 보기"; return ` <li class="version-card"> <div class="row"> <strong>v${v.version}</strong> ${badge(v.status)} </div> <div class="row meta"> <span>항목 ${v.items.length}개</span> <span>${v.note}</span> </div> <div class="controls" style="margin-top:0;"> <button class="btn btn-primary open-detail" type="button" data-version="${v.version}" ${openDisabled}>${openLabel}</button> </div> </li> `; }).join(""); refs.versionList.querySelectorAll(".open-detail").forEach((btn) => { btn.addEventListener("click", () => { state.selectedVersion = btn.dataset.version; state.selectedItemId = null; refs.itemForm.reset(); refs.saveItemBtn.textContent = "항목 추가"; renderDetail(); setScreen("detail"); }); }); refs.createDraftBtn.style.display = state.role === "pm" ? "inline-flex" : "none"; } function renderDetail() { const ver = selectedVersion(); if (!ver) return; refs.detailTitle.textContent = `버전 v${ver.version} 상세`; refs.detailMeta.textContent = `상태: ${ver.status} | 변경 메모: ${ver.note}`; refs.detailItems.innerHTML = ver.items.map((item) => { const t = item.changeType === "initial" ? "modified" : item.changeType; const selected = state.selectedItemId === item.id ? "active" : ""; return ` <li class="item-card"> <div class="row"> <button type="button" class="pick-item ${selected}" data-item-id="${item.id}"> <span class="item-title">${item.id} ${item.title}</span> </button> ${item.changeType === "initial" ? '<span class="badge b-draft">initial</span>' : `<span class="badge b-${t}">${item.changeType}</span>`} </div> <p class="item-body">${item.description}</p> <p class="item-note">변경 사유: ${item.reason}</p> </li> `; }).join(""); refs.detailItems.querySelectorAll(".pick-item").forEach((btn) => { btn.addEventListener("click", () => { if (state.role !== "pm") return; state.selectedItemId = btn.dataset.itemId; const item = ver.items.find((i) => i.id === state.selectedItemId); if (!item) return; refs.itemTitle.value = item.title; refs.itemDesc.value = item.description; refs.changeType.value = item.changeType === "initial" ? "modified" : item.changeType; refs.changeReason.value = item.reason; refs.saveItemBtn.textContent = "항목 수정"; renderDetail(); }); }); const isPm = state.role === "pm"; refs.pmActions.style.display = isPm ? "block" : "none"; refs.clientActions.style.display = isPm ? "none" : "block"; if (isPm) { const editable = ver.status === "draft"; refs.requestApprovalBtn.disabled = !editable || ver.items.length === 0; refs.itemTitle.disabled = !editable; refs.itemDesc.disabled = !editable; refs.changeType.disabled = !editable; refs.changeReason.disabled = !editable; refs.saveItemBtn.disabled = !editable; refs.deleteItemBtn.disabled = !editable || !state.selectedItemId; } else { const pending = ver.status === "pending_approval"; refs.approveBtn.disabled = !pending; refs.rejectBtn.disabled = !pending; } } function createDraftFromApproved() { if (state.versions.some((v) => v.status === "draft")) { announce("이미 Draft 버전이 있습니다. 기존 Draft를 사용해 주세요."); return; } const base = latestApproved(); if (!base) { announce("승인된 버전이 없어 Draft를 만들 수 없습니다."); return; } const draft = { version: nextVersion(base.version), status: "draft", note: `v${base.version} 기준 복사 후 변경 시작`, rejectReason: "", items: base.items.map((item) => ({ ...item, changeType: "modified", prevItemId: item.id, reason: "기준 버전에서 복사" })) }; state.versions.push(draft); state.selectedVersion = draft.version; renderList(); announce(`v${draft.version} Draft를 생성했습니다.`); } function requestApproval() { const ver = selectedVersion(); if (!ver || ver.status !== "draft") { announce("Draft 상태에서만 승인 요청이 가능합니다."); return; } ver.status = "pending_approval"; ver.note = "PM이 승인 요청 보냄"; state.selectedItemId = null; refs.itemForm.reset(); refs.saveItemBtn.textContent = "항목 추가"; renderList(); renderDetail(); announce(`v${ver.version} 승인 요청이 전송되었습니다.`); } function approveVersion() { const ver = selectedVersion(); if (!ver || ver.status !== "pending_approval") { announce("승인 대기 버전만 승인할 수 있습니다."); return; } ver.status = "approved"; ver.note = "클라이언트 승인 완료"; ver.rejectReason = ""; renderList(); renderDetail(); announce(`v${ver.version}이 승인되어 읽기 전용 상태가 됐습니다.`); } function rejectVersion() { const ver = selectedVersion(); const comment = refs.rejectComment.value.trim(); if (!ver || ver.status !== "pending_approval") { announce("승인 대기 버전만 반려할 수 있습니다."); return; } if (!comment) { announce("반려 코멘트를 입력해 주세요."); refs.rejectComment.focus(); return; } ver.status = "rejected"; ver.rejectReason = comment; ver.note = "클라이언트 반려"; const resubmit = { version: nextVersion(ver.version), status: "draft", note: `반려(v${ver.version}) 후 신규 Draft 생성`, rejectReason: "", items: ver.items.map((item) => ({ ...item, changeType: item.changeType === "removed" ? "removed" : "modified", prevItemId: item.prevItemId || item.id, reason: `반려 사유 반영 예정: ${comment}` })) }; state.versions.push(resubmit); state.selectedVersion = resubmit.version; refs.rejectComment.value = ""; renderList(); renderDetail(); announce(`v${ver.version} 반려 후 v${resubmit.version} Draft를 생성했습니다.`); } refs.rolePm.addEventListener("click", () => setRole("pm")); refs.roleClient.addEventListener("click", () => setRole("client")); refs.toRoleBtn.addEventListener("click", () => { state.role = null; state.selectedVersion = null; state.selectedItemId = null; refs.itemForm.reset(); refs.saveItemBtn.textContent = "항목 추가"; setScreen("role"); }); refs.backToListBtn.addEventListener("click", () => { renderList(); setScreen("list"); }); refs.createDraftBtn.addEventListener("click", createDraftFromApproved); refs.requestApprovalBtn.addEventListener("click", requestApproval); refs.approveBtn.addEventListener("click", approveVersion); refs.rejectBtn.addEventListener("click", rejectVersion); refs.itemForm.addEventListener("submit", (event) => { event.preventDefault(); const ver = selectedVersion(); if (!ver || ver.status !== "draft") { announce("Draft 버전만 편집 가능합니다."); return; } const title = refs.itemTitle.value.trim(); const description = refs.itemDesc.value.trim(); const changeType = refs.changeType.value; const reason = refs.changeReason.value.trim(); if (!title || !description || !reason) { announce("필수 입력 항목을 채워주세요."); return; } if (state.selectedItemId) { const item = ver.items.find((i) => i.id === state.selectedItemId); if (!item) return; item.title = title; item.description = description; item.changeType = changeType; item.reason = reason; item.prevItemId = item.prevItemId || item.id; announce(`${item.id} 항목을 수정했습니다.`); } else { const id = `REQ-${String(ver.items.length + 1).padStart(3, "0")}`; ver.items.push({ id, title, description, changeType, reason, prevItemId: null }); announce(`${id} 항목을 추가했습니다.`); } state.selectedItemId = null; refs.itemForm.reset(); refs.saveItemBtn.textContent = "항목 추가"; renderList(); renderDetail(); }); refs.deleteItemBtn.addEventListener("click", () => { const ver = selectedVersion(); if (!ver || ver.status !== "draft" || !state.selectedItemId) return; ver.items = ver.items.filter((item) => item.id !== state.selectedItemId); announce(`${state.selectedItemId} 항목을 삭제했습니다.`); state.selectedItemId = null; refs.itemForm.reset(); refs.saveItemBtn.textContent = "항목 추가"; renderList(); renderDetail(); }); </script> </body> </html> EOF 명령으로 완료됨
+
+
+3개 화면 분리 리팩터링은 반영됐습니다. 마지막으로 파일 상태를 확인하고, 변경 구조를 짧게 정리해 전달하겠습니다.
+
+백그라운드 터미널이 git status --short 명령으로 완료됨
+
+
+백그라운드 터미널이 echo --- 명령으로 완료됨
+
+
+검색 1건 탐색 마침
+2m 17s 동안 작업
+동의합니다. 그래서 한 화면 우겨넣기 구조를 3개 화면 플로우로 분리했습니다.
+
+변경 파일:
+
+index.html
+핵심 변경:
+
+유저 선택 화면 (screen-role)
+기준요구사항 목록 페이지 (screen-list)
+기준요구사항 상세 페이지 (screen-detail)
+setScreen() 기반으로 단계 전환(상단에 1-2-3 플로우 표시)
+목록에서 버전 선택 후 상세 진입, 상세에서 목록으로 복귀
+기존 상태 로직 유지:
+PM: Draft 편집/승인요청
+클라이언트: pending_approval 승인/반려
+반려 시 다음 버전 Draft 자동 생성
+즉, 지금은 사용 흐름이 역할선택 → 목록확인 → 상세작업으로 명확하게 나뉘어 가독성이 훨씬 좋아졌습니다.
+
+원하면 다음으로:
+
+목록/상세를 진짜 멀티페이지(list.html, detail.html)로 물리 분리
+URL 해시 라우팅(#role/#list/#detail) 추가해서 뒤로가기 히스토리 지원
+
+일단 스킬에서 개선되어야할점.
+
+index.html 을 사용한 방법을 골랐더니 무조건적으로 index.html 하나에서 만들려고함.
+
+화면이 여러개면 html 파일을 분리해서 그냥 링크로 연결하는게 나을거 같은데?
+
+그리고 tailwindcss를 사용해야하는데 안함.
+
+index.html 방식 사용할거면 tailwindcss, alpinejs 사용하게끔 해서 더 쉽게 만들면 되잖아.
+
+그리고 무조건 no 프레임워크 방식으로 가려고하는데 사용자의 선호도를 먼저 물어봐. 가령 이 스킬이 위치한 프로젝트가 이미 nextjs나 sveltekit 같은 프레임워크로 세팅된 상태로 실행될 수도 있으니까.
+
+---
+
+그리고 git이 개발자들은 대부분 깔려있으니까 괜찮겠지만, git이 있는지 확인해서 없으면 git설치를 제안해.
+
+에이전트가 작업을 해주고 나면 무조건 일단 자동으로 커밋하고 태그를 버전으로 달아야해. 그래야 나중에 사용자가 이전 작업으로 돌아가 달라고 하면 쉽게 돌아갈 수 있으니까.
+
+---
+
+[Request interrupted by user]
+
+---
+
+skill.md 가 중요한거 아니야?

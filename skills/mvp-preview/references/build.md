@@ -147,10 +147,10 @@ git --version
 ```bash
 git add .
 git commit -m "feat: MVP [한 줄 요약]"
-git tag mvp-v1
+git tag v1
 ```
 
-이터레이션마다 태그를 올린다: `mvp-v1` → `mvp-v2` → `mvp-v3`
+이터레이션마다 태그를 올린다: `v1` → `v2` → `v3`
 
 ### 이전 버전으로 되돌리기
 
@@ -159,7 +159,7 @@ git tag mvp-v1
 git tag
 
 # 특정 버전으로 되돌리기
-git checkout mvp-v1
+git checkout v1
 ```
 
 ---
@@ -169,4 +169,4 @@ git checkout mvp-v1
 - [ ] 핵심 사용자 흐름을 처음부터 끝까지 클릭해볼 수 있다
 - [ ] 목업 데이터가 화면에 보인다
 - [ ] 브라우저에서 오류 없이 열린다
-- [ ] git 커밋과 `mvp-vN` 태그가 달려 있다
+- [ ] git 커밋과 `vN` 태그가 달려 있다

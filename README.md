@@ -16,6 +16,17 @@
 npx skills add dev-goraebap/skills
 ```
 
+실행하면 설치할 스킬을 직접 고를 수 있습니다:
+
+```
+◆  Select skills to install (space to toggle)
+│  ◻ media-storage
+│  ◻ mvp-preview
+│  ◻ sveltekit-progressive-architecture
+```
+
+스페이스로 원하는 스킬을 선택하고 엔터를 누르면 설치됩니다.
+
 ## Agent Skills
 
 > **Agent Skills**란 AI 에이전트에게 절차적 지식을 제공하는 재사용 가능한 역량 모음입니다. Claude Code, Cursor, GitHub Copilot, Gemini, Windsurf, Cline 등 **24개 이상의 에이전트**에서 동일한 스킬을 사용할 수 있습니다. 자세한 내용은 [agentskills.io](http://agentskills.io)를 참고하세요.

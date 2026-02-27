@@ -6,13 +6,14 @@
 |------|------|
 | [sveltekit-progressive-architecture](./skills/sveltekit-progressive-architecture/) | SvelteKit 개발 가이드라인 |
 | [media-storage](./skills/media-storage/) | 파일 업로드·저장소·첨부 관리 패턴 (R2, blob, 색상 추출) |
+| [mvp-preview](./skills/mvp-preview/) | 핵심 기능을 빠르게 만들고 링크로 공유하는 워크플로우 (토론→구현→공유) |
 
 ## 설치하기
 
 [skills.sh](https://skills.sh)에서 스킬을 검색하고, 아래 명령으로 설치할 수 있습니다:
 
 ```bash
-npx skillsadd dev-goraeba/agent-skills
+npx skillsadd dev-goraebap/agent-skills
 ```
 
 ## Agent Skills

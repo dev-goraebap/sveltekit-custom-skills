@@ -1,0 +1,34 @@
+{
+  "cli_version": "0.4.7",
+  "checkpoint_id": "251141efae7c",
+  "session_id": "ae2bb597-32c6-490b-b65b-4633f6c6fe4d",
+  "strategy": "manual-commit",
+  "created_at": "2026-03-01T14:37:52.503433991Z",
+  "branch": "master",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "skills/wiki/SKILL.md",
+    "skills/wiki/evals/evals.json",
+    "skills/wiki/references/ddd-structure.md",
+    "skills/wiki/references/extraction.md",
+    "skills/wiki/templates/wiki-skill.md"
+  ],
+  "agent": "Claude Code",
+  "turn_id": "f52091053a88",
+  "token_usage": {
+    "input_tokens": 57,
+    "cache_creation_tokens": 109143,
+    "cache_read_tokens": 4661181,
+    "output_tokens": 35407,
+    "api_call_count": 53
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-03-01T14:37:52.296635061Z",
+    "agent_lines": 653,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 653,
+    "agent_percentage": 100
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "cli_version": "0.4.7",
+  "checkpoint_id": "d68ca465efbc",
+  "session_id": "ae2bb597-32c6-490b-b65b-4633f6c6fe4d",
+  "strategy": "manual-commit",
+  "created_at": "2026-03-01T15:53:46.810414482Z",
+  "branch": "master",
+  "checkpoints_count": 0,
+  "files_touched": [
+    "skills/wiki-creator/SKILL.md"
+  ],
+  "agent": "Claude Code",
+  "turn_id": "f392dd057dfb",
+  "checkpoint_transcript_start": 294,
+  "transcript_lines_at_start": 294,
+  "token_usage": {
+    "input_tokens": 22,
+    "cache_creation_tokens": 142125,
+    "cache_read_tokens": 2365350,
+    "output_tokens": 21067,
+    "api_call_count": 18
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-03-01T15:53:46.553364025Z",
+    "agent_lines": 180,
+    "human_added": 468,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 648,
+    "agent_percentage": 27.77777777777778
+  }
+}

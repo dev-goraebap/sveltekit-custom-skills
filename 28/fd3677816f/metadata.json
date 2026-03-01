@@ -1,0 +1,29 @@
+{
+  "cli_version": "0.4.7",
+  "checkpoint_id": "28fd3677816f",
+  "strategy": "manual-commit",
+  "branch": "master",
+  "checkpoints_count": 7,
+  "files_touched": [
+    "skills/mvp-preview/SKILL.md",
+    "skills/mvp-preview/references/build.md",
+    "skills/mvp-preview/references/discovery.md",
+    "skills/mvp-preview/templates/brief.md"
+  ],
+  "sessions": [
+    {
+      "metadata": "/28/fd3677816f/0/metadata.json",
+      "transcript": "/28/fd3677816f/0/full.jsonl",
+      "context": "/28/fd3677816f/0/context.md",
+      "content_hash": "/28/fd3677816f/0/content_hash.txt",
+      "prompt": "/28/fd3677816f/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 998,
+    "cache_creation_tokens": 225459,
+    "cache_read_tokens": 3817924,
+    "output_tokens": 27020,
+    "api_call_count": 44
+  }
+}

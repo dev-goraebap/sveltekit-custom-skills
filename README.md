@@ -4,9 +4,12 @@
 
 | 스킬 | 설명 |
 |------|------|
-| [sveltekit-progressive-architecture](./skills/sveltekit-progressive-architecture/) | SvelteKit 개발 가이드라인 |
-| [media-storage](./skills/media-storage/) | 파일 업로드·저장소·첨부 관리 패턴 (R2, blob, 색상 추출) |
+| [wiki-creator](./skills/wiki-creator/) | 프로젝트 위키 문서 생성 및 관리 |
 | [mvp-preview](./skills/mvp-preview/) | 핵심 기능을 빠르게 만들고 링크로 공유하는 워크플로우 (토론→구현→공유) |
+| [media-storage](./skills/media-storage/) | 파일 업로드·저장소·첨부 관리 패턴 (R2, blob, 색상 추출) |
+| [sveltekit-progressive-architecture](./skills/sveltekit-progressive-architecture/) | SvelteKit 개발 가이드라인 |
+| [sveltekit-shadcn-guidline](./skills/sveltekit-shadcn-guidline/) | SvelteKit + shadcn-svelte 컴포넌트 활용 가이드 |
+| [vscode-claude-notify](./skills/vscode-claude-notify/) | VSCode Claude 알림 버그 우회 — OS 네이티브 알림으로 작업 완료·오류 수신 (Windows/macOS/WSL) |
 
 ## 설치하기
 

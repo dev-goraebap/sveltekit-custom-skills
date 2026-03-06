@@ -1,0 +1,87 @@
+Implement the following plan:
+
+# Plan: html-prototype 공통 컴포넌트 패턴 추가
+
+## 배경
+
+`html-prototype` 스킬은 순수 HTML/CSS/JS 프로토타입을 생성한다 (빌드 단계 없음, 컨셉 유지).
+여러 화면을 만들면 공통 네비게이션/사이드바가 파일마다 미묘하게 달라지는 문제가 있어,
+`components.js` 공유 파일 패턴을 `build.md`에 명시적으로 추가한다.
+
+## 변경 내용
+
+### `references/build.md`에 추가할 섹션
+
+**공통 컴포넌트 패턴** — `preview/components.js` 파일 하나에 공통 UI 정의:
+
+```js
+// components.js
+function renderNavbar(title, backHref) {
+  return `<nav style="...">
+    ${backHref ? `<a href="${backHref}">←</a>` : ''}
+    <span>${title}</span>
+  </nav>`;
+}
+
+function renderSidebar(activeMenu) {
+  const menus = [
+    { id: 'home', label: '홈', href: '02-dashboard.html' },
+    { id: 'list', label: '목록', href: '03-list.html' },
+  ];
+  return `<aside style="...">
+    ${menus.map(m => `<a href="${m.href}" class="${m.id === activeMenu ? 'active' : ''}">${m.label}</a>`).join('')}
+  </aside>`;
+}
+```
+
+각 HTML에서 불러오는 방법:
+```html
+<script src="./components.js"></script>
+<script>
+  document.getElementById('navbar').innerHTML = renderNavbar('목록', 'index.html');
+  document.getElementById('sidebar').innerHTML = renderSidebar('list');
+</script>
+```
+
+- `file://` 프로토콜에서 동작함 (외부 `fetch` 없이 `<script src>` 방식이므로)
+- 공통 스타일도 `components.js` 안에서 `<style>` 태그를 `document.head`에 주입해 관리
+
+## 변경 파일
+
+- `skills/html-prototype/references/build.md`: 공통 컴포넌트 패턴 섹션 추가
+- `skills/html-prototype/SKILL.md`: Step 4 원칙에 "공통 컴포넌트가 필요한 경우 components.js 사용" 한 줄 추가
+
+## 검증
+
+변경 후 `build.md` 내용이 실제로 사용 가능한 패턴인지 확인:
+- `preview/components.js` + `01-login.html` + `02-dashboard.html` 세 파일 생성
+- 브라우저에서 `file://` 경로로 열어 navbar/sidebar 렌더링 확인
+
+
+If you need specific details from before exiting plan mode (like exact code snippets, error messages, or content you generated), read the full transcript at: /home/devgo/.claude/projects/-home-devgo-my-skills/235a5991-02ea-462f-8557-02d53d92f933.jsonl
+
+If this plan can be broken down into multiple independent tasks, consider using the TeamCreate tool to create a team and parallelize the work.
+
+---
+
+Tool loaded.
+
+---
+
+Tool loaded.
+
+---
+
+차라리 웹컴포넌트 방식으로 하는건 더 깔끔하지 않나?
+
+---
+
+응 잘 바꿔줘. 페이지 이제 만들려고 할 때 어차피 필요한 페이지들 잘 파악하고 있을거니까 공통 컴포넌트는 미리 그렇게 웹 컴포넌트로 만들어서 가져다 쓰게끔 하도록 하자.
+
+---
+
+Tool loaded.
+
+---
+
+[Request interrupted by user for tool use]

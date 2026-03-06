@@ -1,0 +1,29 @@
+{
+  "cli_version": "0.4.7",
+  "checkpoint_id": "9bf89370096b",
+  "strategy": "manual-commit",
+  "branch": "master",
+  "checkpoints_count": 2,
+  "files_touched": [
+    "skills/usecase-diagram-gen/SKILL.md",
+    "skills/usecase-diagram-gen/references/mermaid-usecase.md",
+    "skills/usecase-diagram-gen/scripts/extract_pdf_text.js",
+    "skills/usecase-diagram-gen/scripts/package.json"
+  ],
+  "sessions": [
+    {
+      "metadata": "/9b/f89370096b/0/metadata.json",
+      "transcript": "/9b/f89370096b/0/full.jsonl",
+      "context": "/9b/f89370096b/0/context.md",
+      "content_hash": "/9b/f89370096b/0/content_hash.txt",
+      "prompt": "/9b/f89370096b/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 33,
+    "cache_creation_tokens": 62759,
+    "cache_read_tokens": 959783,
+    "output_tokens": 17028,
+    "api_call_count": 21
+  }
+}

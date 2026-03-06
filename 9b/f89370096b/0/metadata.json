@@ -1,0 +1,33 @@
+{
+  "cli_version": "0.4.7",
+  "checkpoint_id": "9bf89370096b",
+  "session_id": "235a5991-02ea-462f-8557-02d53d92f933",
+  "strategy": "manual-commit",
+  "created_at": "2026-03-06T12:22:24.784902213Z",
+  "branch": "master",
+  "checkpoints_count": 2,
+  "files_touched": [
+    "skills/usecase-diagram-gen/SKILL.md",
+    "skills/usecase-diagram-gen/references/mermaid-usecase.md",
+    "skills/usecase-diagram-gen/scripts/extract_pdf_text.js",
+    "skills/usecase-diagram-gen/scripts/package.json"
+  ],
+  "agent": "Claude Code",
+  "turn_id": "0a161c50bccb",
+  "token_usage": {
+    "input_tokens": 33,
+    "cache_creation_tokens": 62759,
+    "cache_read_tokens": 959783,
+    "output_tokens": 17028,
+    "api_call_count": 21
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-03-06T12:22:24.663654374Z",
+    "agent_lines": 483,
+    "human_added": 1,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 484,
+    "agent_percentage": 99.79338842975206
+  }
+}

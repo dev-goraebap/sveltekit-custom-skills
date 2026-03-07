@@ -13,7 +13,9 @@
 
 ---
 
-## 기본 HTML 템플릿
+## 플랫폼별 기본 템플릿
+
+### 모바일 웹 (기본)
 
 ```html
 <!DOCTYPE html>
@@ -27,6 +29,77 @@
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
            background: #f5f5f5; color: #111; min-height: 100vh; }
     .container { max-width: 480px; margin: 0 auto; padding: 24px 16px; }
+    /* 화면별 스타일 */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- UI -->
+  </div>
+  <script>
+    // 목업 데이터 및 화면 전환 로직
+  </script>
+</body>
+</html>
+```
+
+### 웹 데스크톱
+
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>화면명</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+           background: #f5f5f5; color: #111; min-height: 100vh; }
+    .layout { display: flex; min-height: 100vh; }
+    .sidebar { width: 240px; background: #fff; border-right: 1px solid #eee;
+               padding: 16px; flex-shrink: 0; }
+    .main { flex: 1; max-width: 960px; padding: 32px; }
+    /* 화면별 스타일 */
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <!-- 사이드바 네비게이션 -->
+    </aside>
+    <main class="main">
+      <!-- UI -->
+    </main>
+  </div>
+  <script>
+    // 목업 데이터 및 화면 전환 로직
+  </script>
+</body>
+</html>
+```
+
+### 반응형
+
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>화면명</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+           background: #f5f5f5; color: #111; min-height: 100vh; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 24px 16px; }
+    @media (max-width: 768px) {
+      .container { padding: 16px 12px; }
+      .hide-mobile { display: none; }
+    }
+    @media (min-width: 769px) {
+      .hide-desktop { display: none; }
+    }
     /* 화면별 스타일 */
   </style>
 </head>
@@ -166,6 +239,8 @@ const detail = {
 
 ## 파일 구조
 
+### 단일 사이트
+
 ```
 preview/
 ├── index.html          ← 허브 (화면 목록)
@@ -174,6 +249,27 @@ preview/
 ├── 02-dashboard.html
 ├── 03-list.html
 ├── 04-detail.html
+└── extracted/          ← PDF 입력 시만
+    └── source.txt
+```
+
+### 멀티 사이트
+
+```
+preview/
+├── index.html          ← 사이트 선택 허브
+├── admin/
+│   ├── index.html      ← 관리자 사이트 화면 허브
+│   ├── components.js   ← 관리자용 공통 컴포넌트 (사이드바 등)
+│   ├── 01-login.html
+│   ├── 02-dashboard.html
+│   └── 03-member-list.html
+├── user/
+│   ├── index.html      ← 사용자 사이트 화면 허브
+│   ├── components.js   ← 사용자용 공통 컴포넌트 (하단탭 등)
+│   ├── 01-onboarding.html
+│   ├── 02-home.html
+│   └── 03-mypage.html
 └── extracted/          ← PDF 입력 시만
     └── source.txt
 ```
@@ -248,6 +344,78 @@ customElements.define('app-sidebar', AppSidebar);
 
 > **사용 기준**: 공통 UI가 3개 이상 화면에 반복될 때만 `components.js`를 만든다.
 > 그 미만이면 각 파일에 인라인으로 두는 게 더 단순하다.
+
+> **멀티 사이트**: 플랫폼/레이아웃이 사이트마다 다르므로 `components.js`는 사이트별로 분리한다.
+> 사이드바 레이아웃(admin)과 하단탭 레이아웃(user)은 서로 다른 컴포넌트가 필요하다.
+
+---
+
+## 하단 탭 바 컴포넌트 (모바일 웹용)
+
+```js
+class AppBottomTab extends HTMLElement {
+  connectedCallback() {
+    const active = this.getAttribute('active') || '';
+    const tabs = [
+      { id: 'home',   label: '홈',       href: '02-home.html' },
+      { id: 'search', label: '검색',     href: '03-search.html' },
+      { id: 'mypage', label: '마이페이지', href: '04-mypage.html' },
+    ];
+    this.innerHTML = `
+      <nav style="position:fixed; bottom:0; left:0; right:0; background:#fff;
+                  border-top:1px solid #eee; display:flex; max-width:480px; margin:0 auto;">
+        ${tabs.map(t => `
+          <a href="${t.href}" style="flex:1; text-align:center; padding:10px 0;
+             text-decoration:none; font-size:12px;
+             ${t.id === active ? 'color:#111; font-weight:600;' : 'color:#999;'}">
+            ${t.label}
+          </a>`).join('')}
+      </nav>`;
+  }
+}
+customElements.define('app-bottom-tab', AppBottomTab);
+```
+
+각 HTML에서: `<app-bottom-tab active="home"></app-bottom-tab>`
+
+---
+
+## 사이트 선택 허브 (멀티 사이트용 index.html)
+
+멀티 사이트일 때 최상위 `preview/index.html`은 각 사이트로 진입하는 허브다.
+
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>프리뷰 — 사이트 선택</title>
+  <style>
+    body { font-family: sans-serif; max-width: 480px; margin: 60px auto; padding: 0 16px; }
+    h1 { font-size: 20px; margin-bottom: 8px; color: #111; }
+    p { font-size: 14px; color: #666; margin-bottom: 32px; }
+    .site-card { display: block; padding: 20px; margin: 12px 0;
+                 background: #fff; border: 1px solid #ddd; border-radius: 12px;
+                 text-decoration: none; color: #111; }
+    .site-card:hover { background: #f8f8f8; border-color: #bbb; }
+    .site-name { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+    .site-meta { font-size: 13px; color: #888; }
+  </style>
+</head>
+<body>
+  <h1>프로젝트명</h1>
+  <p>사이트를 선택하세요</p>
+  <a class="site-card" href="admin/index.html">
+    <div class="site-name">관리자 사이트</div>
+    <div class="site-meta">웹 데스크톱 · 사이드바 레이아웃</div>
+  </a>
+  <a class="site-card" href="user/index.html">
+    <div class="site-name">사용자 사이트</div>
+    <div class="site-meta">모바일 웹 · 하단탭 레이아웃</div>
+  </a>
+</body>
+</html>
+```
 
 ---
 

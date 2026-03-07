@@ -71,14 +71,24 @@ node ~/.claude/skills/screen-design-doc/scripts/extract_pdf_text.js \
    - 없으면 → ID 추적 생략, SC ID만 부여
    - 있으면 → 각 화면 도출 시 해당 요구사항 ID를 함께 기록
 
-2. **화면 목록 도출**: 기능 단위를 화면 단위로 묶는다
+2. **사이트 판단**: 멀티 사이트가 필요한지 판단한다
+   - 멀티 사이트 기준 (아래 중 하나 이상 해당):
+     - 사용자 역할이 다르고 화면 구성이 전혀 다름 (예: 관리자 vs 일반 사용자)
+     - 대상 디바이스/플랫폼이 다름 (예: 데스크톱 웹 vs 모바일 웹)
+     - 독립 배포가 필요함 (예: admin.example.com vs app.example.com)
+   - 멀티 사이트 → 사이트 슬러그 결정 (소문자 영문, 예: `admin`, `user`, `partner`)
+   - 단일 사이트 → 기존 플랫 구조 유지
+
+3. **화면 목록 도출**: 기능 단위를 화면 단위로 묶는다
    - 동일 목적/맥락의 기능 → 한 화면
    - 화면 간 계층 관계 파악 (메인 → 서브 → 상세)
 
-3. **화면 그룹핑**: IA 상위 카테고리 결정 (예: 인증, 대시보드, 설정)
+4. **화면 그룹핑**: IA 상위 카테고리 결정 (예: 인증, 대시보드, 설정)
    - 그룹 번호가 SC ID의 첫 번째 자리가 된다
 
 분석 결과를 아래 형식으로 정리한 뒤 다음 단계로 진입한다:
+
+**단일 사이트:**
 ```
 [그룹 01: 인증]
   - SC-01-01: 로그인 화면 ← REQ-001, REQ-002
@@ -90,9 +100,38 @@ node ~/.claude/skills/screen-design-doc/scripts/extract_pdf_text.js \
   - SC-02-02: 알림 목록 ← REQ-012
 ```
 
+**멀티 사이트:**
+```
+[사이트: admin — 관리자 / 웹 데스크톱 / 사이드바]
+  [그룹 01: 인증]
+    - SC-ADMIN-01-01: 로그인 화면 ← REQ-001
+  [그룹 02: 대시보드]
+    - SC-ADMIN-02-01: 대시보드 ← REQ-010
+    - SC-ADMIN-02-02: 회원 관리 ← REQ-011
+
+[사이트: user — 일반 사용자 / 모바일 웹 / 하단탭]
+  [그룹 01: 온보딩]
+    - SC-USER-01-01: 온보딩 ← REQ-020
+  [그룹 02: 홈]
+    - SC-USER-02-01: 홈 화면 ← REQ-030
+```
+
 ### Step 4 — IA 사이트맵 생성
 
 `references/screen-design-guide.md`의 IA 패턴을 참고해 전체 화면 계층을 Mermaid로 표현한다.
+
+**모든 ia-sitemap.md 상단에 메타 테이블을 포함한다:**
+
+```markdown
+| 항목 | 값 |
+|------|-----|
+| 사이트 | default |
+| 대상 | 전체 사용자 |
+| 플랫폼 | 모바일 웹 |
+| 레이아웃 | 하단탭 |
+```
+
+**단일 사이트:**
 
 ```mermaid
 flowchart TD
@@ -103,19 +142,26 @@ flowchart TD
 
     g01 --> sc0101["SC-01-01\n로그인"]
     g01 --> sc0102["SC-01-02\n회원가입"]
-    g01 --> sc0103["SC-01-03\n비밀번호 찾기"]
 
     g02 --> sc0201["SC-02-01\n메인 대시보드"]
-    g02 --> sc0202["SC-02-02\n알림 목록"]
 ```
 
 `screen-design/ia-sitemap.md`에 저장한다.
+
+**멀티 사이트:**
+
+각 사이트별로 별도의 `ia-sitemap.md`를 생성한다. SC ID에 사이트 슬러그가 포함된다.
+
+- `screen-design/admin/ia-sitemap.md` — 관리자 사이트 IA
+- `screen-design/user/ia-sitemap.md` — 사용자 사이트 IA
 
 ### Step 5 — 화면설계서 생성
 
 화면별로 넘버링된 MD 파일을 생성한다. `references/screen-design-guide.md`의 화면설계서 템플릿을 기준으로 작성한다.
 
-**화면 ID 체계**: `SC-[그룹번호]-[순번]` (예: `SC-01-01`, `SC-02-03`)
+**화면 ID 체계**:
+- 단일 사이트: `SC-[그룹번호]-[순번]` (예: `SC-01-01`, `SC-02-03`)
+- 멀티 사이트: `SC-[SITE]-[그룹번호]-[순번]` (예: `SC-ADMIN-01-01`, `SC-USER-02-03`)
 **파일명**: 전체 순번 2자리 + 영문명 (예: `01-login.md`, `04-dashboard.md`)
 
 각 화면설계서 파일 구성:
@@ -137,13 +183,32 @@ flowchart TD
 
 워크스페이스 루트 `screen-design/` 폴더:
 
+**단일 사이트 (기존 플랫 구조 유지, ia-sitemap.md에 메타 테이블만 추가):**
 ```
 screen-design/
 ├── README.md               ← 화면 그룹 목록, SC ID 인덱스, 파일 링크
-├── ia-sitemap.md           ← 전체 화면 계층 Mermaid
+├── ia-sitemap.md           ← 메타 테이블 + 전체 화면 계층 Mermaid
 ├── 01-login.md             ← 화면설계서
 ├── 02-signup.md
 ├── ...
+└── extracted/              ← PDF 입력 시만
+    └── source.txt
+```
+
+**멀티 사이트:**
+```
+screen-design/
+├── README.md               ← 전체 사이트 개요, 사이트별 링크
+├── admin/
+│   ├── ia-sitemap.md       ← 메타 테이블 + 관리자 IA Mermaid
+│   ├── 01-login.md
+│   ├── 02-dashboard.md
+│   └── ...
+├── user/
+│   ├── ia-sitemap.md       ← 메타 테이블 + 사용자 IA Mermaid
+│   ├── 01-onboarding.md
+│   ├── 02-home.md
+│   └── ...
 └── extracted/              ← PDF 입력 시만
     └── source.txt
 ```
@@ -160,8 +225,9 @@ screen-design/
 
 기존 파일을 모두 읽어 현재 상태를 파악한다:
 - `screen-design/README.md` — 화면 목록, 그룹 구조
-- `screen-design/ia-sitemap.md` — 현재 IA 구조
-- `screen-design/[번호]-[화면명].md` — 각 화면설계서
+- 단일 사이트: `screen-design/ia-sitemap.md` — 현재 IA 구조
+- 멀티 사이트: `screen-design/[사이트]/ia-sitemap.md` — 사이트별 IA 구조
+- `screen-design/[번호]-[화면명].md` 또는 `screen-design/[사이트]/[번호]-[화면명].md` — 각 화면설계서
 
 현재 SC ID 마지막 번호, 그룹 구조, 화면 수를 파악해둔다.
 
@@ -172,9 +238,9 @@ screen-design/
 
 변경 유형 분류:
 ```
-[추가] 새 화면, 새 그룹, 새 컴포넌트
+[추가] 새 화면, 새 그룹, 새 컴포넌트, 새 사이트
 [수정] 화면명 변경, 컴포넌트 변경, 액션 변경
-[삭제] 화면 제거, 그룹 통합
+[삭제] 화면 제거, 그룹 통합, 사이트 제거
 ```
 
 애매한 부분이 있으면 작업 전에 사용자에게 확인한다.
@@ -189,6 +255,8 @@ screen-design/
 | 새 화면 추가 | 새 화면 `.md` 생성 + `ia-sitemap.md` + `README.md` |
 | 화면 삭제 | 해당 `.md` 삭제 + `ia-sitemap.md` + `README.md` |
 | 새 그룹 추가 | 해당 그룹 화면 `.md` + `ia-sitemap.md` + `README.md` |
+| 새 사이트 추가 | 사이트 폴더 생성 + `ia-sitemap.md` + 화면 `.md` + `README.md` |
+| 사이트 제거 | 사이트 폴더 삭제 + `README.md` |
 
 **SC ID 처리:**
 - 기존 SC ID는 절대 변경하지 않는다 (추적 이력 보존)

@@ -65,6 +65,54 @@ description: >
 - 각 Story의 인수 조건(AC)으로 구현 완료 기준을 확인할 수 있다
 - Story 간 의존성을 확인하여 작업 순서를 결정할 수 있다
 
+## 원격 리포지토리 (선택)
+
+> 이 섹션은 생성 시 사용자가 원격 리포 정보를 제공한 경우에만 포함한다.
+
+| 항목 | 내용 |
+|------|------|
+| 플랫폼 | GitHub / GitLab |
+| 리포지토리 | {repo-url} |
+
+## 업데이트 절차
+
+이 위키에 이슈 추가, Story 수정 등 변경이 필요할 때:
+
+### 1. 인증 확인
+
+`~/.config/agent-wiki/credentials`에서 `[{platform}.{skill-name}]` 섹션을 읽는다.
+
+```toml
+[{platform}.{skill-name}]
+url      = {base-url}
+repo     = {repo-path}
+token    = (발급받은 토큰)
+username = (사용자명)
+```
+
+섹션이 없으면 사용자에게 credentials 설정을 안내하고 중단한다.
+
+### 2. 리포지토리 준비
+
+로컬에 clone이 있으면 pull, 없으면 임시 디렉토리에 clone한다.
+기본 브랜치에서 `contrib/{skill-name}-{설명}` 브랜치를 생성한다.
+
+### 3. 변경 적용
+
+CONTRIBUTING.md의 규칙에 따라 문서를 수정한다:
+- 이슈 → Story로 변환 (타입: feature / bug / enhancement / tech-debt)
+- 관련 Epic과 product-backlog.md 갱신
+- product-brief.md 없으면 부트스트랩 제안
+
+### 4. MR/PR 생성
+
+커밋 후 push하고, 플랫폼에 맞는 방식으로 MR/PR을 생성한다:
+- GitHub: `gh pr create`
+- GitLab: REST API로 MR 생성
+- 제목: `[{skill-name}] 변경 요약`
+
+MR/PR URL을 사용자에게 보고한다.
+
 ## 문서 수정 규칙
 
 문서를 수정할 때는 반드시 [CONTRIBUTING.md](CONTRIBUTING.md)의 규칙을 따른다.
@@ -109,6 +157,38 @@ description: >
 # Contributing Guide
 
 이 위키의 문서를 수정할 때 반드시 아래 규칙을 따릅니다.
+
+## 기여 방법
+
+이 위키는 에이전트(Claude 등)를 통해 기여할 수 있습니다.
+직접 push하지 않고, MR/PR을 통해 리뷰 후 반영합니다.
+
+### Credentials 설정
+
+`~/.config/agent-wiki/credentials` 파일에 인증 정보를 추가합니다:
+
+\```toml
+[{platform}.{skill-name}]
+url      = {base-url}
+repo     = {repo-path}
+token    = (발급받은 토큰)
+username = (사용자명)
+\```
+
+토큰 발급 방법은 각 플랫폼의 Personal Access Token 가이드를 참고하세요.
+
+### 기여 요청
+
+에이전트에게 자연어로 요청합니다:
+
+> "{skill-name} 위키에 로그인 버그 이슈 추가해줘"
+
+에이전트가 자동으로: credentials 읽기 → 브랜치 생성 → 변경 → MR/PR 생성
+
+### 브랜치 / MR/PR 규칙
+
+- 브랜치: `contrib/{skill-name}-{설명}`
+- MR/PR 제목: `[{skill-name}] 변경 요약`
 
 ## ID 규칙
 

@@ -67,6 +67,36 @@
         "product-brief.md의 내용이 기존 백로그/Epic/Story와 일관성이 있다",
         "기존 product-backlog.md의 개요에 Product Brief 링크가 추가되었다"
       ]
+    },
+    {
+      "id": 5,
+      "prompt": "우리 프로젝트에 백로그가 없는데, 로그인할 때 비밀번호 특수문자가 안 먹히는 버그가 있어. 이거 정리해줘.",
+      "expected_output": "백로그가 없는 프로젝트에서 부트스트랩으로 최소 위키 구조(Product Brief, Product Backlog, 위키 스킬 파일)를 생성한 뒤, 버그 이슈를 bug 타입 Story로 추가. 재현 조건/기대 동작 형식 사용.",
+      "files": [],
+      "assertions": [
+        "product-brief.md가 생성되었다 (최소 제품명, 플랫폼 포함)",
+        "product-backlog.md가 생성되었다",
+        "SKILL.md, README.md, CONTRIBUTING.md가 생성되었다",
+        "user-stories/ 디렉토리에 bug 관련 Story 파일이 존재한다",
+        "해당 Story의 타입이 bug이다",
+        "해당 Story에 현상/재현 조건/기대 동작 형식의 본문이 있다",
+        "해당 Story에 인수 조건 체크리스트가 있다",
+        "해당 Story가 소속된 Epic 문서가 존재한다"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "todo-app-wiki 위키에 마감일 알림이 안 오는 버그 이슈 추가하고 PR 만들어줘.",
+      "expected_output": "credentials에서 todo-app-wiki 인증 정보를 읽고, 원격 리포를 clone하여 bug 타입 Story를 추가한 뒤, GitHub/GitLab에 MR/PR을 생성. PR URL 보고.",
+      "files": [],
+      "assertions": [
+        "~/.config/agent-wiki/credentials 파일을 읽으려고 시도한다",
+        "contrib/todo-app-wiki-* 형식의 브랜치를 생성한다",
+        "bug 타입의 Story 파일이 생성된다",
+        "관련 Epic과 product-backlog.md가 갱신된다",
+        "MR/PR이 생성되고 URL이 보고된다",
+        "MR/PR 제목이 [todo-app-wiki] 형식이다"
+      ]
     }
   ]
 }

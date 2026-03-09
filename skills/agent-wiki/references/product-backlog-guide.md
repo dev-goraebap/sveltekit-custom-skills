@@ -43,10 +43,10 @@ Product Backlog는 agent-wiki 산출물의 **진입점**이다. 모든 Epic과 U
 
 ## User Story 전체 목록
 
-| Story ID | Story명 | Epic | 우선순위 | 상태 | 라벨 |
-|----------|---------|------|---------|------|------|
-| [US-001](user-stories/us-001-xxx.md) | Story명 | [EP-001](epics/ep-001-xxx.md) | Must | Todo | frontend, backend |
-| [US-002](user-stories/us-002-xxx.md) | Story명 | [EP-001](epics/ep-001-xxx.md) | Should | Todo | frontend |
+| Story ID | Story명 | Epic | 타입 | 우선순위 | 상태 | 라벨 |
+|----------|---------|------|------|---------|------|------|
+| [US-001](user-stories/us-001-xxx.md) | Story명 | [EP-001](epics/ep-001-xxx.md) | feature | Must | Todo | frontend, backend |
+| [US-002](user-stories/us-002-xxx.md) | Story명 | [EP-001](epics/ep-001-xxx.md) | bug | Must | Todo | frontend |
 
 ## 의존성 맵
 

@@ -1,6 +1,28 @@
 # 업데이트 모드 가이드
 
 워크스페이스에 이미 `product-backlog.md`가 있을 때 사용하는 플로우다.
+`product-backlog.md`가 없는 기존 프로젝트에서 이슈/변경 요청이 들어오면, 먼저 부트스트랩을 수행한 뒤 이 플로우를 따른다.
+
+---
+
+## 부트스트랩 — 백로그 없는 프로젝트 초기화
+
+`product-backlog.md`가 없지만 전체 기획서가 아닌 이슈/변경 요청이 들어온 경우:
+
+1. 사용자에게 프로젝트 기본 정보를 확인한다 (최소: 제품명, 플랫폼 유형)
+2. 최소 Product Brief 생성 (`references/product-brief-guide.md` 참고, 파악 불가 항목은 `(미정)`)
+3. 빈 Product Backlog 생성 (Epic/Story 목록 없이 개요만)
+4. 위키 스킬 파일 생성 (SKILL.md, README.md, CONTRIBUTING.md, .gitignore — `references/wiki-skill-guide.md` 참고)
+5. 이후 아래 U-Step 1부터 진행하여 이슈를 Story로 추가
+
+부트스트랩은 한 번만 수행한다. 이후부터는 일반 업데이트 모드.
+
+---
+
+## U-Step 0 — 워크스페이스 판단
+
+- **로컬 워크스페이스**: 위키 파일이 현재 디렉토리에 있으면 로컬에서 직접 수정
+- **원격 위키**: 사용자가 원격 위키를 언급하거나, 생성된 위키 스킬에서 호출된 경우 → `references/remote-contrib-guide.md` 참고하여 원격 모드로 진행 (clone → 브랜치 → 변경 → MR/PR)
 
 ---
 
@@ -57,6 +79,8 @@
 
 ## U-Step 4 — 변경 요약 보고
 
+### 로컬 모드
+
 ```
 ✅ agent-wiki 업데이트 완료
 
@@ -70,4 +94,19 @@
 
 [변경 없는 파일]
 - definition-of-done.md, ep-002-dashboard.md 등 (변경 없음)
+```
+
+### 원격 모드
+
+MR/PR URL을 포함한다:
+
+```
+✅ 위키 업데이트 MR/PR 생성 완료
+
+PR: https://github.com/{repo}/pull/42
+
+[변경 내용]
+- user-stories/us-014-fix-login-bug.md 추가 (bug 타입)
+- epics/ep-002-user-mgmt.md 갱신
+- product-backlog.md 갱신
 ```

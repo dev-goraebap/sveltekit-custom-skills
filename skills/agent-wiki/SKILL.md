@@ -5,8 +5,11 @@ description: >
   Product Brief와 애자일 문서(Product Backlog, Epic, User Story, Definition of Done)를 자동 생성.
   생성된 문서는 위키 스킬로 활용 가능하며, 에이전트가 제품 컨텍스트(플랫폼, 대상 사용자)와
   요구사항을 참고하여 프로젝트를 수행할 수 있다.
+  기존 프로젝트의 이슈(버그, 개선, 기술 부채)도 Story로 관리 가능.
+  원격 위키 리포에 MR/PR을 통한 기여를 지원한다.
   트리거: "백로그 만들어줘", "유저스토리 정리", "에픽 뽑아줘", "애자일 문서",
-  "agent-wiki", "에이전트 위키", "요구사항을 스토리로", "백로그 업데이트", "스토리 추가해줘" 등
+  "agent-wiki", "에이전트 위키", "요구사항을 스토리로", "백로그 업데이트",
+  "스토리 추가해줘", "이슈 정리해줘", "버그 추가해줘" 등
 allowed-tools: Bash Read Write
 metadata:
   author: dev-goraebap
@@ -41,7 +44,8 @@ metadata:
 
 ### Step 0 — 모드 감지
 
-- `product-backlog.md` 없음 → **신규 모드** (Step 1~7)
+- `product-backlog.md` 없음 + 기획서/문서 입력 → **신규 모드** (Step 1~7)
+- `product-backlog.md` 없음 + 이슈/변경 요청 → **부트스트랩** 후 업데이트 모드 (`references/update-guide.md` 부트스트랩 참고)
 - `product-backlog.md` 있음 → **업데이트 모드** (`references/update-guide.md` 참고)
 
 `product-brief.md` 존재 여부도 확인해둔다 (업데이트 모드에서 역생성 판단에 사용).
@@ -49,6 +53,8 @@ metadata:
 ### Step 1 — 입력 확인
 
 파일 경로 → 확장자 확인(`.pdf/.txt/.md`만 허용). 구두 설명 → 그대로 사용.
+
+**원격 리포 확인:** 위키를 원격 리포에서 관리할지 사용자에게 확인한다. URL이 있으면 기록해두고, Step 6에서 생성되는 SKILL.md와 CONTRIBUTING.md에 원격 정보를 포함한다.
 
 ### Step 2 — 텍스트 추출 및 소스 보관
 
@@ -88,9 +94,10 @@ node ~/.claude/skills/agent-wiki/scripts/extract_pdf_text.js \
 1. Epic 도출 (기능 영역별, EP-001부터)
 2. User Story 도출 ("~로서, ~하고 싶다" 형식, US-001부터 통합 번호)
 3. 우선순위 (Must / Should / Could)
-4. 라벨 (frontend, backend, mobile, infra 등)
-5. Story 간 의존성 (선행/후행)
-6. 인수 조건 (체크리스트)
+4. 타입 (feature, bug, enhancement, tech-debt)
+5. 라벨 (frontend, backend, mobile, infra 등)
+6. Story 간 의존성 (선행/후행)
+7. 인수 조건 (체크리스트)
 
 ### Step 5 — Product Backlog 생성
 
@@ -125,7 +132,9 @@ node ~/.claude/skills/agent-wiki/scripts/extract_pdf_text.js \
 | `references/product-brief-guide.md` | Product Brief 템플릿 + 작성 규칙 |
 | `references/product-backlog-guide.md` | Backlog 템플릿 + 소스 이력 + 링크 패턴 |
 | `references/epic-guide.md` | Epic 템플릿 + ID/파일명 규칙 + 데이터 모델 |
-| `references/user-story-guide.md` | Story 템플릿 + AC + 상태/라벨/의존성 + UI/화면 |
+| `references/user-story-guide.md` | Story 템플릿 + AC + 타입/상태/라벨/의존성 + UI/화면 |
 | `references/dod-guide.md` | DoD 체크리스트 템플릿 |
-| `references/update-guide.md` | 업데이트 모드 상세 절차 |
+| `references/update-guide.md` | 업데이트 모드 + 부트스트랩 + 원격 워크스페이스 절차 |
 | `references/wiki-skill-guide.md` | SKILL.md/README/CONTRIBUTING/.gitignore 템플릿 + 스킬 이름 규칙 |
+| `references/credentials-guide.md` | 원격 기여 인증 정보 형식 + 설정 방법 |
+| `references/remote-contrib-guide.md` | 원격 기여 절차 (R-Step 1~5) |

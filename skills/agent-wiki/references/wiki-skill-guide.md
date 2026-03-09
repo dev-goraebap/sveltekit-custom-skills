@@ -78,7 +78,14 @@ description: >
 
 이 위키에 이슈 추가, Story 수정 등 변경이 필요할 때:
 
-### 1. 인증 확인
+### 워크스페이스 판단
+
+- **위키 리포에서 직접 작업** (CWD에 `product-backlog.md`가 있음): 로컬 git으로 브랜치 생성 → 수정 → push → PR
+- **프로젝트에 설치된 스킬로 호출** (`.agents/skills/` 하위): 설치된 로컬 파일을 직접 수정하지 않는다. 아래 원격 절차를 따른다.
+
+### 원격 업데이트 (설치된 스킬에서 호출 시)
+
+#### 1. 인증 확인
 
 `~/.config/agent-wiki/credentials`에서 `[{platform}.{skill-name}]` 섹션을 읽는다.
 
@@ -92,19 +99,19 @@ username = (사용자명)
 
 섹션이 없으면 사용자에게 credentials 설정을 안내하고 중단한다.
 
-### 2. 리포지토리 준비
+#### 2. 리포지토리 준비
 
-로컬에 clone이 있으면 pull, 없으면 임시 디렉토리에 clone한다.
+임시 디렉토리에 원격 리포를 clone한다.
 기본 브랜치에서 `contrib/{skill-name}-{설명}` 브랜치를 생성한다.
 
-### 3. 변경 적용
+#### 3. 변경 적용
 
 CONTRIBUTING.md의 규칙에 따라 문서를 수정한다:
 - 이슈 → Story로 변환 (타입: feature / bug / enhancement / tech-debt)
 - 관련 Epic과 product-backlog.md 갱신
 - product-brief.md 없으면 부트스트랩 제안
 
-### 4. MR/PR 생성
+#### 4. MR/PR 생성
 
 커밋 후 push하고, 플랫폼에 맞는 방식으로 MR/PR을 생성한다:
 - GitHub: `gh pr create`

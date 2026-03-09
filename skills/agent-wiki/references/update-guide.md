@@ -21,8 +21,29 @@
 
 ## U-Step 0 — 워크스페이스 판단
 
-- **로컬 워크스페이스**: 위키 파일이 현재 디렉토리에 있으면 로컬에서 직접 수정
-- **원격 위키**: 사용자가 원격 위키를 언급하거나, 생성된 위키 스킬에서 호출된 경우 → `references/remote-contrib-guide.md` 참고하여 원격 모드로 진행 (clone → 브랜치 → 변경 → MR/PR)
+위키가 어디에 있는지에 따라 수정 방식이 달라진다:
+
+### 케이스 A: 위키 워크스페이스에서 직접 작업
+
+CWD가 위키 리포 자체인 경우 (예: `todo-app-wiki/` 디렉토리에서 작업).
+`product-backlog.md`가 CWD 루트에 있고, CWD 자체가 git 리포다.
+
+→ **로컬 git으로 수정**: 브랜치 생성 → 파일 수정 → push → PR 생성
+→ credentials 불필요 (이미 git remote가 설정되어 있음)
+
+### 케이스 B: 프로젝트에 설치된 스킬로 호출
+
+CWD가 소스코드 프로젝트인 경우 (예: `todo-app/`).
+위키가 `.agents/skills/todo-app-wiki/`에 설치되어 있다.
+
+→ **설치된 스킬의 로컬 파일을 직접 수정하지 않는다** (읽기 전용 복사본)
+→ `references/remote-contrib-guide.md` 참고하여 원격 모드: credentials 읽기 → 원격 리포 clone → 브랜치 → 변경 → MR/PR
+
+### 판단 기준
+
+1. `product-backlog.md`가 CWD 루트에 있으면 → 케이스 A
+2. 위키가 `.agents/skills/` 또는 `~/.claude/skills/` 하위에 있으면 → 케이스 B
+3. 사용자가 원격 위키를 명시적으로 언급하면 → 케이스 B
 
 ---
 

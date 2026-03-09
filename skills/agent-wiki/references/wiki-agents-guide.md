@@ -1,0 +1,62 @@
+# 위키 에이전트 가이드
+
+생성된 위키 워크스페이스가 에이전트와 협업하기 위해 필요한 파일들의 템플릿과 규칙을 정의한다.
+
+---
+
+## 워크스페이스 이름 규칙
+
+디렉토리명은 **영문 소문자 + 하이픈(-)**만 허용된다.
+
+**이름 결정 방식:**
+- 디렉토리명이 이미 `-wiki`로 끝나면 → 그대로 사용
+- 디렉토리명이 영문+하이픈이고 `-wiki`로 끝나지 않으면 → `{폴더명}-wiki`
+- 디렉토리명이 한글이거나 규칙에 맞지 않으면 → 프로젝트 성격으로 영문 슬러그 생성 → `{슬러그}-wiki`
+  - 예: `연차관리프로그램` → `leave-mgmt-wiki`
+  - 예: `My Project!` → `my-project-wiki`
+
+**이름 불일치 피드백:**
+
+디렉토리명과 권장 슬러그가 다를 경우 결과 보고에서 안내한다:
+
+```
+⚠️  워크스페이스 이름 권장 사항
+현재 폴더명 "{현재폴더명}"과 권장 슬러그 "{슬러그}"가 다릅니다.
+폴더명을 변경하려면: mv {현재폴더명} {슬러그}
+이름이 마음에 안 드시면 말씀해주세요.
+```
+
+---
+
+## AGENTS.md 템플릿
+
+→ `templates/agents-md.md` 참고
+
+---
+
+## README.md 템플릿
+
+→ `templates/README.md` 참고
+
+---
+
+## CONTRIBUTING.md 템플릿
+
+→ `templates/CONTRIBUTING.md` 참고
+
+---
+
+## .gitignore 내용
+
+```
+# OS
+.DS_Store
+Thumbs.db
+
+# npm 패키지
+scripts/node_modules/
+scripts/package-lock.json
+```
+
+> **Note:** `.agents/`와 `.claude/`는 gitignore하지 않는다.
+> 이 위키는 agent skill이 아닌 일반 git 리포이므로 해당 디렉토리가 생길 일이 없다.

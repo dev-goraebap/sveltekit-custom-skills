@@ -3,7 +3,7 @@ type: epic
 id: EP-NNN
 title: Epic명
 priority: Must
-state: Todo
+state: pending
 story_count: N
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
@@ -19,14 +19,14 @@ updated: YYYY-MM-DD
 | Epic명 | ... |
 | 설명 | (이 Epic이 다루는 기능 영역 요약) |
 | 우선순위 | Must / Should / Could |
-| 상태 | Todo / In Progress / Done |
+| 상태 | pending / in-progress / done (소속 Story 상태 종합) |
 
 ## 소속 User Story
 
 | Story ID | Story명 | 우선순위 | 상태 |
 |----------|---------|---------|------|
-| [US-001](../user-stories/us-001-xxx.md) | Story명 | Must | Todo |
-| [US-002](../user-stories/us-002-xxx.md) | Story명 | Should | Todo |
+| [US-001](../user-stories/us-001-xxx.md) | Story명 | Must | pending |
+| [US-002](../user-stories/us-002-xxx.md) | Story명 | Should | pending |
 
 ## 메모 / 의사결정 기록
 

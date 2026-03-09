@@ -9,7 +9,7 @@ wiki: {프로젝트슬러그}
 
 ## 역할
 
-비정형 정보를 받아 Product Brief, Product Backlog, Epic, User Story, DoD를 생성·갱신한다.
+비정형 정보를 받아 Product Brief, Product Backlog, Epic, User Story, DoD, Sitemap, Data Model을 생성·갱신한다.
 
 ## 문서 구조
 
@@ -18,6 +18,8 @@ wiki: {프로젝트슬러그}
 - [`epics/`](epics/) — Epic별 상세 문서
 - [`user-stories/`](user-stories/) — User Story별 상세 문서
 - [`definition-of-done.md`](definition-of-done.md) — 공통 완료 기준
+- [`sitemap.md`](sitemap.md) — 화면 목록 (UI 정보 있을 때 자동 생성)
+- [`data-model.md`](data-model.md) — 엔티티·관계 정의 (MVP 프론트 검토 후 생성)
 
 ## 에이전트 작업 방식
 
@@ -27,7 +29,7 @@ wiki: {프로젝트슬러그}
 
 **소스코드 프로젝트의 서브모듈로 사용되는 경우:**
 - 이 AGENTS.md와 주요 문서를 읽어 제품 컨텍스트를 파악한다
-- 문서 업데이트 요청 시 `CONTRIBUTING.md`의 절차를 따른다
+- 문서 업데이트 요청 시 `agent-wiki` 스킬의 UPDATE 모드를 실행한다
 
 ## 원격 리포지토리
 

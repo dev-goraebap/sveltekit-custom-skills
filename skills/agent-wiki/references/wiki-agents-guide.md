@@ -40,23 +40,8 @@
 
 ---
 
-## CONTRIBUTING.md 템플릿
+## .gitignore 템플릿
 
-→ `templates/CONTRIBUTING.md` 참고
+→ `templates/.gitignore` 참고
 
----
-
-## .gitignore 내용
-
-```
-# OS
-.DS_Store
-Thumbs.db
-
-# npm 패키지
-scripts/node_modules/
-scripts/package-lock.json
-```
-
-> **Note:** `.agents/`와 `.claude/`는 gitignore하지 않는다.
-> 이 위키는 agent skill이 아닌 일반 git 리포이므로 해당 디렉토리가 생길 일이 없다.
+`.agents/`와 `.claude/`를 포함한다. 에이전트가 위키 워크스페이스에서 작업할 때 해당 디렉토리가 생성될 수 있으므로 git 추적에서 제외한다.

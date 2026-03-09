@@ -3,6 +3,7 @@ type: product-backlog
 project: <project-name>
 epic_count: N
 story_count: N
+cancelled_count: 0
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
 ---
@@ -37,8 +38,8 @@ updated: YYYY-MM-DD
 
 | Story ID | Story명 | Epic | 타입 | 우선순위 | 상태 | 라벨 |
 |----------|---------|------|------|---------|------|------|
-| [US-001](user-stories/us-001-xxx.md) | Story명 | [EP-001](epics/ep-001-xxx.md) | feature | Must | Todo | frontend, backend |
-| [US-002](user-stories/us-002-xxx.md) | Story명 | [EP-001](epics/ep-001-xxx.md) | bug | Must | Todo | frontend |
+| [US-001](user-stories/us-001-xxx.md) | Story명 | [EP-001](epics/ep-001-xxx.md) | feature | Must | pending | frontend, backend |
+| [US-002](user-stories/us-002-xxx.md) | Story명 | [EP-001](epics/ep-001-xxx.md) | bug | Must | pending | frontend |
 
 ## 의존성 맵
 
@@ -46,3 +47,12 @@ updated: YYYY-MM-DD
 |-------|-----------|
 | [US-002](user-stories/us-002-xxx.md) | [US-001](user-stories/us-001-xxx.md) |
 | [US-005](user-stories/us-005-xxx.md) | [US-003](user-stories/us-003-xxx.md), [US-004](user-stories/us-004-xxx.md) |
+
+## 취소된 스토리
+
+> 방향 변경으로 더 이상 필요 없는 Story를 삭제하지 않고 여기에 보관한다.
+> 파일(us-NNN-*.md)은 `state: cancelled`로 변경 후 유지한다. ID는 재사용하지 않는다.
+
+| Story ID | Story명 | 소속 Epic | 취소 사유 | 취소일 |
+|----------|---------|-----------|-----------|--------|
+| — | — | — | — | — |

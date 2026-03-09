@@ -52,9 +52,10 @@ Epic 문서에서 다른 문서로의 링크:
 1. 소속 Story 테이블은 US ID 오름차순으로 정렬
 2. Epic의 우선순위는 소속 Story 중 가장 높은 우선순위를 따른다
 3. Epic의 상태는 소속 Story의 상태를 종합하여 판단:
-   - 모든 Story가 Todo → Todo
-   - 하나 이상 In Progress → In Progress
-   - 모든 Story가 Done → Done
+   - 모든 Story가 pending → pending
+   - 하나 이상 ready / in-progress → in-progress
+   - 하나 이상 blocked → blocked (관리자 판단 필요)
+   - 모든 Story가 done 또는 cancelled → done
 4. 메모 / 의사결정 기록은 빈 테이블로 생성 (사용자가 추후 기록)
 5. 데이터 모델 섹션은 **선택 사항**이다. 입력에서 데이터 구조가 파악되는 경우에만 작성한다
 6. 데이터 모델은 해당 Epic 범위의 엔티티만 포함한다. 다른 Epic의 엔티티는 포함하지 않는다

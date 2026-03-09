@@ -5,7 +5,8 @@ title: Story명
 epic: EP-NNN
 story_type: feature
 priority: Must
-state: Todo
+state: pending
+agent-note: ""
 labels:
   - frontend
   - backend
@@ -23,7 +24,7 @@ updated: YYYY-MM-DD
 | Epic | [EP-NNN Epic명](../epics/ep-NNN-xxx.md) |
 | 타입 | feature / bug / enhancement / tech-debt |
 | 우선순위 | Must / Should / Could |
-| 상태 | Todo / In Progress / Done |
+| 상태 | pending / ready / in-progress / blocked / review-needed / done / cancelled |
 | 라벨 | frontend, backend |
 
 ## User Story
@@ -34,9 +35,9 @@ updated: YYYY-MM-DD
 
 ## 인수 조건 (Acceptance Criteria)
 
-- [ ] 조건 1
-- [ ] 조건 2
-- [ ] 조건 3
+- Given [사전 조건]
+  When [행동]
+  Then [기대 결과]
 
 ## 의존성
 
@@ -60,3 +61,9 @@ updated: YYYY-MM-DD
 | 날짜 | 내용 | 결정 |
 |------|------|------|
 | | | |
+
+## 에이전트 노트
+
+> 이 섹션은 에이전트가 컨텍스트 전달 목적으로 자동 기입한다. 구현 상태, 미완료 항목, 다음 에이전트에게 전달할 맥락을 기록한다.
+
+(없음)

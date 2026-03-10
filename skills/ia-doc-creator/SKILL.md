@@ -2,11 +2,11 @@
 name: ia-doc-creator
 description: >
   비정형 정보(기획 메모, 클라이언트 요청, User Story, Epic 등) 또는 기존 소스코드·문서를 분석하여
-  인포메이션 아키텍처 문서(Sitemap, User Flows, IA Audit)를 생성·관리한다.
+  인포메이션 아키텍처 문서(Sitemap, IA Audit)를 생성·관리한다.
   Findability, Discoverability, Clarity, Scalability 원칙을 적용하며,
   생성 후 다른 에이전트가 이 문서들을 유지·보수하는 방법을 가이드라인으로 함께 준비한다.
   트리거: "IA 설계해줘", "사이트맵 만들어줘", "네비게이션 구조", "정보 구조 잡아줘",
-  "화면 구조 설계", "유저 플로우", "ia-doc-creator", "메뉴 구조", "페이지 계층",
+  "화면 구조 설계", "ia-doc-creator", "메뉴 구조", "페이지 계층",
   "화면 계층", "IA 감사"
 metadata:
   author: dev-goraebap
@@ -70,7 +70,6 @@ metadata:
 | 문서 | 생성 조건 | 가이드 |
 |------|-----------|--------|
 | `sitemap.md` | UI 정보가 있을 때 | `references/sitemap-guide.md` |
-| `user-flows.md` | 페르소나별 핵심 태스크 2개 이상일 때 | `references/user-flows-guide.md` |
 | `ia-audit.md` | 기존 구조 검토 요청 시 | 아래 IA 감사 섹션 참고 |
 | `CONTRIBUTING.md` | 신규 워크스페이스 | 아래 가이드라인 섹션 참고 |
 
@@ -85,7 +84,7 @@ metadata:
 - **비즈니스 제약**: MVP 범위, 우선순위 (Must/Should/Could)
 
 기존 채번·명명 규칙 확인:
-1. `sitemap.md`, `user-flows.md` 등에서 화면 ID, 경로 패턴 확인
+1. `sitemap.md` 등에서 화면 ID, 경로 패턴 확인
 2. 이미 정의된 화면명, 섹션명이 있으면 그대로 사용
 3. 없으면 IA 표준 명명법 적용 (구체적, 행동 지향, 사용자 언어)
 
@@ -96,7 +95,6 @@ metadata:
 1. **Organization** — 콘텐츠를 어떻게 그룹화할 것인가
 2. **Labeling** — 각 그룹/화면을 어떻게 명명할 것인가
 3. **Navigation** — 사용자가 어떻게 이동할 것인가
-4. **User Flows** — 핵심 태스크별 최적 경로는 무엇인가
 
 ### Step 3 — 산출물 생성
 
@@ -144,8 +142,7 @@ metadata:
 - 신규 화면은 마지막 번호에서 이어서 부여
 
 ## 문서 수정 원칙
-- sitemap.md: 화면 추가/삭제 시 user-flows.md도 함께 검토
-- user-flows.md: Mermaid 다이어그램 형식 유지
+- sitemap.md: 화면 추가/삭제 시 IA 구조도 함께 검토
 
 ```
 
@@ -157,11 +154,9 @@ metadata:
 |------|------|
 | `references/ia-principles.md` | IA 핵심 원칙 + 휴리스틱 상세 |
 | `references/sitemap-guide.md` | Sitemap 생성 규칙 + IA 설계 원칙 |
-| `references/user-flows-guide.md` | User Flows 생성 규칙 + 도출 기준 |
 
 ### Templates
 
 | 파일 | 역할 |
 |------|------|
 | `templates/sitemap.md` | Sitemap 양식 |
-| `templates/user-flows.md` | User Flows 양식 |

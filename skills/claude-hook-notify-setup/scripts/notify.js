@@ -9,8 +9,10 @@ const mode = process.argv[2] || 'stop';
 
 const truncate = (str, max) => str.length > max ? str.slice(0, max) + '...' : str;
 
+const ICON = path.join(__dirname, '..', 'assets', 'toast_img.jpg');
+
 function notify(title, message) {
-  notifier.notify({ title, message, appID: 'Claude Code' });
+  notifier.notify({ title, message, icon: ICON, appID: 'Claude Code' });
 }
 
 function permissionMessage(toolName, toolInput) {

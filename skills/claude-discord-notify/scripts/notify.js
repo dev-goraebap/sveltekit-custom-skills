@@ -61,22 +61,7 @@ function sendEmbed(embed, done) {
 
 const mode = process.argv[2] || 'stop';
 
-if (mode === 'notification') {
-  const projectName = path.basename(process.cwd());
-  const agentName = process.env.CLAUDE_MODEL || 'Claude Sonnet 4.6';
-  sendEmbed(
-    {
-      title: projectName,
-      color: 16776960, // 노란색
-      description: '확인이 필요합니다',
-      footer: { text: agentName },
-    },
-    () => process.exit(0)
-  );
-  return; // Stop 모드로 넘어가지 않도록
-}
-
-// Stop mode — stdin에서 훅 페이로드 읽기
+// stdin에서 훅 페이로드 읽기 (Stop, Notification 공통)
 let raw = '';
 process.stdin.setEncoding('utf8');
 process.stdin.on('data', (chunk) => { raw += chunk; });
@@ -88,11 +73,27 @@ process.stdin.on('end', () => {
     process.exit(0);
   }
 
-  // 실제 페이로드 구조: last_assistant_message, cwd 직접 제공
+  const agentName = process.env.CLAUDE_MODEL || 'Claude Sonnet 4.6';
+
+  if (mode === 'notification') {
+    const projectName = payload.cwd ? path.basename(payload.cwd) : path.basename(process.cwd());
+    const description = payload.message || '확인이 필요합니다';
+    sendEmbed(
+      {
+        title: projectName,
+        color: 16776960, // 노란색
+        description,
+        footer: { text: agentName },
+      },
+      () => process.exit(0)
+    );
+    return;
+  }
+
+  // Stop mode
   const raw_msg = payload.last_assistant_message || '';
   const summary = raw_msg.length > 300 ? raw_msg.slice(0, 300) + '...' : raw_msg || '(없음)';
   const projectName = payload.cwd ? path.basename(payload.cwd) : path.basename(process.cwd());
-  const agentName = process.env.CLAUDE_MODEL || 'Claude Sonnet 4.6';
 
   sendEmbed(
     {

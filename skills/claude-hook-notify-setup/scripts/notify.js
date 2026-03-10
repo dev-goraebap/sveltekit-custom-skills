@@ -13,6 +13,13 @@ process.stdin.on('end', () => {
   let payload = {};
   try { payload = JSON.parse(raw); } catch {}
 
+  // 디버그: 페이로드 캡처
+  const os = require('os');
+  require('fs').writeFileSync(
+    os.homedir() + '/.claude/skills/claude-hook-notify-setup/debug-' + mode + '.json',
+    JSON.stringify(payload, null, 2)
+  );
+
   const projectName = payload.cwd ? path.basename(payload.cwd) : 'Claude Code';
 
   if (mode === 'notification') {
@@ -24,10 +31,16 @@ process.stdin.on('end', () => {
   } else if (mode === 'permission') {
     const toolName = payload.tool_name || '도구';
     const toolInput = payload.tool_input || {};
-    const detail = toolInput.command || toolInput.path || JSON.stringify(toolInput).slice(0, 80);
+    let message;
+    if (toolName === 'AskUserQuestion' && toolInput.questions && toolInput.questions[0]) {
+      message = toolInput.questions[0].question.slice(0, 150);
+    } else {
+      const detail = toolInput.command || toolInput.path || JSON.stringify(toolInput).slice(0, 100);
+      message = `${toolName}: ${detail}`;
+    }
     notifier.notify({
       title: projectName,
-      message: `권한 요청: ${toolName}\n${detail}`,
+      message,
       appID: 'Claude Code'
     });
   } else {

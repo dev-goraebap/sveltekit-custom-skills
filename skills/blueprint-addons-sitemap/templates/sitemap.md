@@ -1,6 +1,5 @@
 ---
 type: sitemap
-project: <project-name>
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
 ---
@@ -8,7 +7,7 @@ updated: YYYY-MM-DD
 # Sitemap
 
 > IA(Information Architecture) 원칙에 따라 설계한 화면 계층 구조.
-> User Story에서 도출하며, 페르소나별 네비게이션 경로와 화면 상태를 포함한다.
+> PRD 기능 요구사항에서 도출하며, 페르소나별 네비게이션 경로를 포함한다.
 
 ## 개요
 
@@ -16,7 +15,6 @@ updated: YYYY-MM-DD
 |------|------|
 | 총 화면 수 | N |
 | MVP 포함 화면 | N |
-| 완료된 화면 | N |
 | 최대 depth | N |
 
 ---
@@ -45,21 +43,21 @@ updated: YYYY-MM-DD
 
 ### [역할/섹션명] (예: 비로그인 사용자)
 
-| 화면명 | 경로 | Depth | MVP | 관련 Story | 상태 |
-|--------|------|-------|-----|-----------|------|
-| (화면명) | /path | 1 | Y | [US-NNN](user-stories/us-NNN-xxx.md) | pending |
+| 화면명 | 경로 | Depth | MVP | 관련 FR | 비고 |
+|--------|------|-------|-----|---------|------|
+| (화면명) | /path | 1 | Y | FR-NNN | |
 
 ### [역할/섹션명] (예: 로그인 사용자)
 
-| 화면명 | 경로 | Depth | MVP | 관련 Story | 상태 |
-|--------|------|-------|-----|-----------|------|
-| (화면명) | /path | 2 | Y | [US-NNN](user-stories/us-NNN-xxx.md) | pending |
+| 화면명 | 경로 | Depth | MVP | 관련 FR | 비고 |
+|--------|------|-------|-----|---------|------|
+| (화면명) | /path | 2 | Y | FR-NNN | |
 
 ### [역할/섹션명] (예: 관리자)
 
-| 화면명 | 경로 | Depth | MVP | 관련 Story | 상태 |
-|--------|------|-------|-----|-----------|------|
-| (화면명) | /admin/path | 2 | N | [US-NNN](user-stories/us-NNN-xxx.md) | pending |
+| 화면명 | 경로 | Depth | MVP | 관련 FR | 비고 |
+|--------|------|-------|-----|---------|------|
+| (화면명) | /admin/path | 2 | N | FR-NNN | |
 
 ---
 
@@ -74,5 +72,4 @@ updated: YYYY-MM-DD
 
 ## 관련 문서
 
-- [User Flows](user-flows.md) — 페르소나별 태스크 흐름
-- [Product Backlog](product-backlog.md)
+- [PRD](../../prd-<기능명>.md)

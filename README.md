@@ -6,18 +6,12 @@
 
 | 스킬 | 설명 |
 |------|------|
-| [blueprint](./skills/blueprint/) | 1인 PM을 위한 설계 문서 관리. 코드가 SSOT이고 문서는 에이전트 지시용 작업 이력이라는 원칙 하에 PRD·디자인·작업 아이템을 생성 |
-| [blueprint-addons-sitemap](./skills/blueprint-addons-sitemap/) | blueprint의 PRD를 기반으로 IA 원칙을 적용한 사이트맵(화면 계층 구조) 설계 |
+| [agent-wiki](./skills/agent-wiki/) | 여러 프로젝트의 AI 에이전트가 하나의 지식 저장소를 공유하도록 심볼릭 링크로 연결 |
+| [agent-wiki-erd](./skills/agent-wiki-erd/) | PRD·도메인 설명·테이블 목록에서 Mermaid ERD(개념·논리·물리) 생성 → `.wiki/design/`에 저장 |
+| [agent-wiki-sitemap](./skills/agent-wiki-sitemap/) | PRD·기획서에서 사이트맵(화면 구조도)을 Mermaid flowchart로 생성 → `.wiki/design/`에 저장 |
+| [agent-wiki-tasks](./skills/agent-wiki-tasks/) | 작업 지시서 생성 + Git 브랜치 전략에 따른 작업 라이프사이클 관리 |
 | [claude-hook-notify-setup](./skills/claude-hook-notify-setup/) | Claude Code hook에 OS 네이티브 토스트 알림 연결 세팅 — Windows/macOS/Linux 지원 |
 | [pdf-parser](./skills/pdf-parser/) | PDF 파일에서 텍스트를 추출하여 .txt로 변환 |
-
-### Deprecated (더 이상 관리되지 않음)
-
-| 스킬 | 설명 |
-|------|------|
-| ~~[agent-wiki](./skills/archive/agent-wiki/)~~ | ~~어떤 정보 공간이든 git 기반 워크스페이스로 만들고 관리~~ |
-| ~~[agile-doc-creator](./skills/archive/agile-doc-creator/)~~ | ~~비정형 정보·소스코드에서 Product Brief, Backlog, Epic, User Story, DoD 생성·관리~~ |
-| ~~[html-prototype](./skills/archive/html-prototype/)~~ | ~~요구사항 문서·화면설계서에서 순수 HTML/CSS/JS 클릭 가능한 프로토타입 자동 생성~~ |
 
 ## 레퍼런스 문서 (`ref/`)
 

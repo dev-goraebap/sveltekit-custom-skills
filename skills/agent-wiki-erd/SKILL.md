@@ -1,5 +1,5 @@
 ---
-name: erd-design
+name: agent-wiki-erd
 description: >
   PRD·도메인 설명·테이블 목록 등을 입력받아 ERD(Entity-Relationship Diagram)를
   Mermaid `.mmd` 파일로 생성한다. 개념(Conceptual)·논리(Logical)·물리(Physical)
@@ -169,9 +169,9 @@ classDef sky stroke-width:1px,stroke-dasharray:none,stroke:#38bdf8,fill:#0e1e2a,
 1. 입력을 분석하여 데이터 모델을 도출한다
 2. 해당 수준의 레퍼런스를 읽고 구조를 맞춘다
 3. `.mmd` 파일을 생성한다
+   - CWD에 `.wiki` 심볼릭 링크가 있어야 한다. 없으면 "`agent-wiki` 스킬로 위키 환경을 먼저 구성해주세요"라고 안내하고 중단한다
    - 사용자가 경로를 지정하면 그곳에 생성한다
-   - 지정하지 않은 경우, CWD에 `.wiki` 폴더가 있으면 `.wiki/`에 생성한다
-   - `.wiki` 폴더도 없으면 CWD에 생성한다
+   - 지정하지 않으면 `.wiki/design/`에 생성한다 (폴더가 없으면 생성)
 4. 사용자에게 VS Code에서 프리뷰를 확인하도록 안내한다
 
 ### 4-2. 리뷰 반영
